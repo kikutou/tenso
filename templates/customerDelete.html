@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+{% block body %}
+<form action="customerDelete" method="post">
+    <p>确定要删除吗？</p>
+    <input type="hidden" name="id" value="{{id}}">
+    <p><input type=submit value="确定"></p>
+    <p><input type=button value="取消" onclick=location.href="/customer"; ></p>
+</form>
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+{% block body %}
+
+              {%if data%}
+                <form action="/customerEdit" method="post">
+                {%else%}
+              <form action="/customerAdd" method="post">
+                  {%endif%}
+
+                  {%if data%}
+                  <input type="hidden" name="id" value="{{data['id']}}">
+                  {%endif%}
+
+                  <div>
+                      <p>客户显示名</p><input type="text" name="name"
+                                         {%if data%} value="{{data['name']}}" {%else%} value="" {%endif%}>
+                      <hr>
+                      <p>客户真名</p><input type="text" name="real_name"
+                                        {%if data%} value="{{data['real_name']}}" {%else%} value="" {%endif%}>
+                      <hr>
+                      <p>客户地址</p><input type="text" name="address"
+                                        {%if data%} value="{{data['address']}}" {%else%} value="" {%endif%}>
+                      <hr>
+                      <p>客户电话1</p><input type="text" name="telephone1"
+                                         {%if data%} value="{{data['telephone1']}}" {%else%} value="" {%endif%}>
+                      <hr>
+                      <p>客户电话2</p><input type="text" name="telephone2"
+                                         {%if data%} value="{{data['telephone2']}}" {%else%} value="" {%endif%}>
+                      <hr>
+                      <p>电子邮件</p><input type="text" name="email"
+                                        {%if data%} value="{{data['email']}}" {%else%} value="" {%endif%}>
+                      <hr>
+                      <p>公司名</p><input type="text" name="company_name"
+                                       {%if data%} value="{{data['company_name']}}" {%else%} value="" {%endif%}>
+                      <hr>
+                      <p>公司地址</p><input type="text" name="company_address"
+                                        {%if data%} value="{{data['company_address']}}" {%else%} value="" {%endif%}>
+                      <hr>
+                      <p>公司电话</p><input type="text" name="company_telephone"
+                                        {%if data%} value="{{data['company_telephone']}}" {%else%} value="" {%endif%}>
+                      <hr>
+                      <br>
+                      <p>身份证认证</p><input type="checkbox" name="id_confirmed_flag"
+                                         {%if data and data.id_confirmed_flag == 1%}checked="checked"{%endif%}>
+                      <hr>
+                      <p>身份证号码</p><input type="text" name="id_card_no"
+                                         {%if data%} value="{{data['id_card_no']}}" {%else%} value="" {%endif%}>
+                      <hr>
+                      <p>身份证照片（正面）</p><input type="file" name="id_card_pic_front"
+                                             {%if data%} value="{{data['id_card_pic_front']}}" {%else%} value="" {%endif%}>
+                      <p><img src="" name="" value=""></p>
+                      <hr>
+                      <p>身份证照片（反面）</p><input type="file" name="id_card_pic_back"
+                                             {%if data%} value="{{data['id_card_pic_back']}}" {%else%} value="" {%endif%}>
+
+                      <p><img src="" name="" value=""></p>
+                      <hr>
+
+                      <p><input type="submit" name="submit" value="登录"></p>
+                      <p><input type=button value="返回" onclick="location.href='/customer';" ></p>
+                  </div>
+
+              </form>
+
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+{% block body %}
+
+        <div class="simple" align="left">
+        	<form method="post">
+
+	        	<table>
+	        		<tr>
+	        			<td>包裏名称</td>
+	        			<td><input type="text" name="name"></td>
+	        		</tr>
+	        		<tr>
+	        			<td>包裏备注</td>
+	        			<td><input type="text" name="memo"></td>
+	        		</tr>
+	        		<tr>
+	        			<td>包裏体积（长）</td>
+	        			<td><input type="text" name="length"></td>
+	        		</tr>
+	        		<tr>
+	        			<td>包裏体积（宽）</td>
+	        			<td><input type="text" name="width"></td>
+	        		</tr>
+	        		<tr>
+	        			<td>包裏体积（高）</td>
+	        			<td><input type="text" name="height"></td>
+	        		</tr>
+	        		<tr>
+	        			<td>包裏重量（g）</td>
+	        			<td><input type="text" name="weight"></td>
+	        		</tr>
+	        	</table>
+	        		
+	        	<br />
+	        	<input type="submit" value="追加">
+        	</form>
+
+       	<br />
+
+        </div>
+
+{% endblock %}

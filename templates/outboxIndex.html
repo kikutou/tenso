@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block body %}
+        <p><a class="btn btn-lg btn-success" href="/addOutbox" role="button">出库箱追加</a>
+        <table class="split total">
+                <tr>
+                    <th>名称</th>
+                    <th>备注</th>
+                    <th>长（cm）</th>
+                    <th>宽（cm）</th>
+                    <th>高（cm）</th>
+                    <th>重量（g）</th>
+                    <th>状态</th>
+                    <th>编辑</th>
+                </tr>
+
+                {%for key,record in data.items()%}
+                    <tr>
+                        <td>{{record['name']}}</td>
+                        <td>{{record['memo']}}</td>
+                        <td>{{record['length']}}</td>
+                        <td>{{record['width']}}</td>
+                        <td>{{record['height']}}</td>
+                        <td>{{record['weight']}}</td>
+                        <td>{%if record['status'] == 0%}
+                              处理中
+                            {%elif record['status'] == 1%}
+                              处理完成
+                            {%elif record['status'] == 2%}
+                              移交yamato
+                            {%elif record['status'] == 3%}
+                              客户已签收
+                            {%endif%}
+                        </td>
+                        <td><button onclick="window.location=('editOutbox?id={{record['id']}}')">编辑</button></td>
+                    </tr>
+                {%endfor%}
+
+            </table>
+{% endblock %}

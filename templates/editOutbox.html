@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block body %}
+
+
+        <div class="simple" align="left">
+        <form method="post">
+        <li>包裏名称<input type="text" class="form-control" name="name" value="{{data['name']}}" placeholder="包裹名称" required autofocus> </li>
+        <li>包裏备注<input type="text" class="form-control" name="memo" value="{{data['memo']}}" placeholder="包裹备注"></li>
+        <li>长（cm）<input type="number" name="length" value="{{data['length']}}" placeholder="长（cm）" required autofocus></li>
+        <li>宽（cm）<input type="number" name="width" value="{{data['width']}}" placeholder="宽（cm）" required autofocus></li>
+        <li>高（cm）<input type="number" name="height" value="{{data['height']}}" placeholder="高（cm）" required autofocus></li>
+        <li>重量（ｇ）<input type="number" name="weight" value="{{data['weight']}}" placeholder="重量（g）" required autofocus></li>
+        <button type="button" name="cancel" onclick="window.location=('outboxIndex')" class="btn">取消</button>
+        <button type="submit" name="add" class="btn">编辑</button>
+        </form>
+
+        </div>
+
+{% endblock %}
