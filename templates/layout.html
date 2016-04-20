@@ -40,7 +40,19 @@
       </div>
 
       <div class="jumbotron">
-        {{message}}
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <!-- system message start //空き枠がある場合 -->
+                <div class="sysmes-box">
+                <h2>消息</h2>
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                </ul>
+                </div>
+            {% endif %}
+        {% endwith %}
+
         {% block body %}
         {% endblock %}
       </div>

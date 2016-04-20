@@ -10,10 +10,11 @@
 				<!-- error end -->
                 {% endif %}
 
-<form action="customerDelete" method="post">
+<form action="inboxDelete" method="post">
     <p>确定要删除吗？</p>
     <input type="hidden" name="id" value="{{id}}">
+    <input type="hidden" name="customer_id" value="{{customer_id}}">
     <p><input type=submit value="确定"></p>
-    <p><input type=button value="取消" onclick=location.href="/customer"; ></p>
+    <p><input type=button value="取消" onclick=location.href="/inboxIndex?id={{customer_id}}"; ></p>
 </form>
 {% endblock %}

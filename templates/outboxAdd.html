@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% block body %}
+
+                        {% if error %}
+                <!-- error start //エラー時のみ表示 -->
+				<div class="error-box">
+					<h2>错误</h2>
+					<p>{{error}}</p>
+				</div>
+				<!-- error end -->
+                {% endif %}
+
+              {%if outbox%}
+                <form action="/outboxEdit" method="post">
+                {%else%}
+                <form action="/outboxAdd" method="post">
+                    {%endif%}
+
+                    <input type="hidden" name="customer_id" value="{{customerId}}">
+
+                  {%if outbox%}
+                  <input type="hidden" name="id" value="{{outbox['id']}}">
+                  {%endif%}
+
+                  <div>
+                      <p>名称</p><input type="text" name="name"
+                                         {%if outbox%} value="{{outbox['name']}}" {%else%} value="" {%endif%}>
+                      <hr>
+                      <p>备注</p><input type="text" name="memo"
+                                        {%if outbox%} value="{{outbox['memo']}}" {%else%} value="" {%endif%}>
+                      <hr>
+                      <p>长（cm）</p><input type="text" name="length"
+                                        {%if outbox%} value="{{outbox['length']}}" {%else%} value="" {%endif%}>
+                      <hr>
+                      <p>宽（cm）</p><input type="text" name="width"
+                                         {%if outbox%} value="{{outbox['width']}}" {%else%} value="" {%endif%}>
+                      <hr>
+                      <p>高（cm）</p><input type="text" name="height"
+                                         {%if outbox%} value="{{outbox['height']}}" {%else%} value="" {%endif%}>
+                      <hr>
+                      <p>重量（g）</p><input type="text" name="weight"
+                                        {%if outbox%} value="{{outbox['weight']}}" {%else%} value="" {%endif%}>
+                      <hr>
+
+                      <p><input type="submit" name="submit" value="追加"></p>
+                      <p><input type=button value="返回" onclick="location.href='/outboxIndex?customer_id={{customerId}}';" ></p>
+                  </div>
+
+              </form>
+
+{% endblock %}

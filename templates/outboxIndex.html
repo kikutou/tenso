@@ -1,6 +1,32 @@
 {% extends "layout.html" %}
 {% block body %}
-        <p><a class="btn btn-lg btn-success" href="/addOutbox" role="button">出库箱追加</a>
+
+<h2>顾客信息</h2>
+<div class="simple" >
+<li>顾客名: {{customer['name']}}</li>
+<li>电话:{{customer['telephone1']}}</li>
+<li>住址:{{customer['address']}}</li>
+<li>邮件:{{customer['email']}}</li>
+</div>
+<hr>
+
+<h2>入库箱信息</h2>
+{% for key,inboxData in inboxArray.items() %}
+<div class="simple" >
+<li>入库箱名: {{inboxData['name']}}</li>
+<li>入库时间:{{inboxData['import_time']}}</li>
+<li>体积(cm):{{inboxData['length']}}*{{inboxData['width']}}*{{inboxData['height']}}</li>
+<li>重量(g):{{inboxData['weight']}}</li>
+    <li>状态：处理中</li>
+</div>
+<hr>
+{%endfor%}
+
+
+<h2>出库箱信息</h2>
+
+
+        <p><a class="btn btn-lg btn-success" href="/outboxAdd?customer_id={{customer.id}}" role="button">出库箱追加</a>
         <table class="split total">
                 <tr>
                     <th>名称</th>
@@ -13,7 +39,7 @@
                     <th>编辑</th>
                 </tr>
 
-                {%for key,record in data.items()%}
+                {%for key,record in outboxData.items()%}
                     <tr>
                         <td>{{record['name']}}</td>
                         <td>{{record['memo']}}</td>
@@ -21,17 +47,23 @@
                         <td>{{record['width']}}</td>
                         <td>{{record['height']}}</td>
                         <td>{{record['weight']}}</td>
-                        <td>{%if record['status'] == 0%}
-                              处理中
-                            {%elif record['status'] == 1%}
-                              处理完成
-                            {%elif record['status'] == 2%}
-                              移交yamato
-                            {%elif record['status'] == 3%}
-                              客户已签收
+                        <td>{% if record['status'] == 0 %}
+                                处理中
+                            {% elif record['status'] == 1 %}
+                                打包完成
+                            {% elif record['status'] == 2 %}
+                                移交yamato
+                            {% elif record['status'] == 3 %}
+                                客户已签收
+                            {% elif record['status'] == 4 %}
+                                无人签收
+                            {% elif record['status'] == 5 %}
+                                丢失
+                            {% else %}
+                                处理错误
                             {%endif%}
                         </td>
-                        <td><button onclick="window.location=('editOutbox?id={{record['id']}}')">编辑</button></td>
+                        <td><button onclick="window.location=('editOutbox?id={{record.id}}')">编辑</button></td>
                     </tr>
                 {%endfor%}
 

@@ -8,6 +8,9 @@ from DaoBaseDBAccess import DaoBase
 
 class Outbox():
 
+    def __init__(self, app):
+        pass
+
 
     def getCustomer(self, id):
         customerRecord = DaoBase().fetchOne('mst_customer', id)
@@ -17,8 +20,15 @@ class Outbox():
         outboxDatas = DaoBase().fetchAll('mst_out_box')
         return outboxDatas
 
-    def addOutbox(self, datas):
+    def getOutboxesByCustomerId(self, id):
+        outboxDatas = DaoBase().fetchAll('mst_out_box', {'customer_id': id})
+        return outboxDatas
 
+    def getOutboxData(self, where):
+        outboxData = DaoBase().fetchOne('mst_out_box', where)
+        return outboxData
+
+    def addOutbox(self, datas):
         tableName = 'mst_out_box'
         result = DaoBase().insertRecord(tableName, datas)
         return result

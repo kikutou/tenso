@@ -8,16 +8,21 @@ from DaoBaseDBAccess import DaoBase
 
 class Inbox(object):
 
-    def __init__(self):
+    def __init__(self, app):
         pass
-
-    def getCustomer(self, id):
-        customerRecord = DaoBase().fetchOne('mst_customer', id)
-        return customerRecord
 
     def getInboxDatas(self, where):
         inboxDatas = DaoBase().fetchAll('mst_in_box', where)
         return inboxDatas
+
+    def getInboxData(self, where):
+        inboxData = DaoBase().fetchOne('mst_in_box', where)
+        return inboxData
+
+    def getInboxesByCustomerId(self, id):
+        inboxDatas = DaoBase().fetchAll('mst_in_box', {'customer_id': id})
+        return inboxDatas
+
 
     def addInbox(self, datas):
 
@@ -29,6 +34,6 @@ class Inbox(object):
         inboxData = DaoBase().fetchOne('mst_in_box', id)
         return inboxData
 
-    def saveInboxData(self, id, datas):
-        result = DaoBase().updateRecord('mst_in_box', datas, id)
+    def saveInboxData(self, id, data):
+        result = DaoBase().updateRecord('mst_in_box', data, id)
         return result

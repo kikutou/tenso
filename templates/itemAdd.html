@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+{% block body %}
+
+                {% if error %}
+                <!-- error start //エラー時のみ表示 -->
+				<div class="error-box">
+					<h2>错误</h2>
+					<p>{{error}}</p>
+				</div>
+				<!-- error end -->
+                {% endif %}
+
+
+                <form action="/inboxEdit" method="post">
+
+
+                    <div>
+                        <p>商品码</p><input type="text" name="jan_code" {%if jancode%} value="{{jancode}}"{%else%} value="" {%endif%}>
+                        <hr>
+                        <p>商品名（日文）</p><input type="text" name="jp_name" value="">
+                        <hr>
+                        <p>商品名（英文）</p><input type="text" name="en_name" value="">
+                        <hr>
+                        <p>商品名（中文）</p><input type="text" name="cn_name" value="">
+                        <hr>
+                        <p>单价</p><input type="text" name="cn_name" value="">
+                        <hr>
+                        <p>数量</p><input type="number" name="number" value="">
+                        <hr>
+                        <p>产地</p><select name="country_of_origin">
+                            <option value=1>中国</option>
+                            <option value=2>日本</option>
+                            <option value=3>越南</option>
+                            <option value=4>马来西亚</option>
+                            </select>
+                        <hr>
+                        <p>备注</p><input type="text" name="memo" value="">
+                        <hr>
+                        <br>
+                        <br>
+                        <p>来自</p><select name="inbox">
+                            <option value=1>一号入库箱</option>
+                            <option value=2>二号入库箱</option>
+                            </select>
+                        <hr>
+                        <p>出箱</p><select name="outbox">
+                            <option value=1>一号出库箱</option>
+                            <option value=2>二号出库箱</option>
+                            </select>
+                        <hr>
+
+                        <p><input type="submit" name="submit" value="追加"></p>
+                        <p><input type=button value="返回" onclick="location.href='/inboxIndex?id={{customerId}}';" ></p>
+                    </div>
+
+              </form>
+
+
+{% endblock %}

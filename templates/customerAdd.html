@@ -1,11 +1,20 @@
 {% extends "layout.html" %}
 {% block body %}
 
+                {% if error %}
+                <!-- error start //エラー時のみ表示 -->
+				<div class="error-box">
+					<h2>错误</h2>
+					<p>{{error}}</p>
+				</div>
+				<!-- error end -->
+                {% endif %}
+
               {%if data%}
                 <form action="/customerEdit" method="post">
                 {%else%}
-              <form action="/customerAdd" method="post">
-                  {%endif%}
+                <form action="/customerAdd" method="post">
+                    {%endif%}
 
                   {%if data%}
                   <input type="hidden" name="id" value="{{data['id']}}">
