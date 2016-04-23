@@ -17,15 +17,15 @@
                     <div>
                         <p>商品码</p><input type="text" name="jan_code" {%if jancode%} value="{{jancode}}"{%else%} value="" {%endif%}>
                         <hr>
-                        <p>商品名（日文）</p><input type="text" name="jp_name" value="">
+                        <p>商品名（日文）</p><input type="text" name="jp_name" {%if itemNameJp%} value="{{itemNameJp}}"{%else%} value="" {%endif%}>
                         <hr>
                         <p>商品名（英文）</p><input type="text" name="en_name" value="">
                         <hr>
                         <p>商品名（中文）</p><input type="text" name="cn_name" value="">
                         <hr>
-                        <p>单价</p><input type="text" name="cn_name" value="">
+                        <p>单价</p><input type="text" name="cn_name" {%if price%} value="{{price}}"{%else%} value="" {%endif%}>
                         <hr>
-                        <p>数量</p><input type="number" name="number" value="">
+                        <p>数量</p><input type="number" name="number" value="1">
                         <hr>
                         <p>产地</p><select name="country_of_origin">
                             <option value=1>中国</option>
@@ -34,7 +34,7 @@
                             <option value=4>马来西亚</option>
                             </select>
                         <hr>
-                        <p>备注</p><input type="text" name="memo" value="">
+                        <p>备注</p><input type="text" name="memo" {%if memo%} value="{{memo}}"{%else%} value="" {%endif%}>
                         <hr>
                         <br>
                         <br>

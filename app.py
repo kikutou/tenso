@@ -4,6 +4,9 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__))+'/model')
 from flask import Flask, flash, render_template, request, json, redirect, session, url_for
 from flaskext.mysql import MySQL
 import datetime
+import urllib
+from bs4 import BeautifulSoup
+import re
 
 import sys
 reload(sys)
@@ -15,6 +18,9 @@ from InboxModel import Inbox
 from OutboxModel import Outbox
 from UserAuthModel import User
 from CustomerModel import Customer
+from MadeInInfoModel import MadeInInfo
+from RelInItemModel import RelInItem
+from RelOutItemModel import RelOutItem
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
@@ -82,27 +88,6 @@ def showLogin():
 
     else:
         return render_template('login.html')
-
-# @app.route('/signUp', methods=['GET', 'POST'])
-# def signUp():
-#
-#     # create user code will be here !!
-#     _name = request.form['inputName']
-#     _email = request.form['inputEmail']
-#     _password = request.form['inputPassword']
-#
-#
-#     _hashed_password = generate_password_hash(_password)
-#     cursor.callproc('sp_createUser',(_name,_email,_hashed_password))
-#     data = cursor.fetchall()
-#
-#     # If the procedure is executed successfully,
-#     # then we'll commit the changes and return the success message.
-#     if len(data) is 0:
-#         conn.commit()
-#         return render_template("index.html")
-#     else:
-#         return json.dumps({'error':str(data[0])})
 
 @app.route('/inboxCustomerSelect')
 def inboxCustomerSelect():
@@ -487,10 +472,32 @@ def itemAdd():
 
     jancode = request.args.get('jancode')
 
-    
+    try:
+        html = urllib.urlopen('http://www.janken.jp/goods/jk_catalog_syosai.php?jan=' + jancode)
+    except Error as e:
+        print e
+
+    soup = BeautifulSoup(html.read(),"html.parser")
+
+    itemTable = soup.select('table[summary="登録情報"]')[0]
+
+    itemNameJp = itemTable.find_all('tr')[0].find_all('td')[1].h5.string
+
+    price = itemTable.find_all('tr')[13].find_all('td')[1].string
+
+    if price:
+        price = price[1:]
+
+    memo = itemTable.find_all('tr')[14].find_all('td')[1].string
 
 
-    return render_template('itemAdd.html', title = unicode("商品添加", 'utf-8'),jancode=jancode)
+
+    madeInInfos = MadeInInfo(app).getMadeInInfos()
+
+
+
+    return render_template('itemAdd.html', title = unicode("商品添加", 'utf-8'),jancode=jancode, itemNameJp = itemNameJp,
+                           price = price, memo = memo, madeInInfos = madeInInfos, )
 
 
 

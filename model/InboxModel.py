@@ -25,7 +25,6 @@ class Inbox(object):
 
 
     def addInbox(self, datas):
-
         tableName = 'mst_in_box'
         result = DaoBase().insertRecord(tableName, datas)
         return result
