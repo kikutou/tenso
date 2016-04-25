@@ -9,9 +9,9 @@ class DaoBase(object):
         # MySQL configurations
         mysql = MySQL()
         app.config['MYSQL_DATABASE_USER'] = 'root'
-        app.config['MYSQL_DATABASE_PASSWORD'] = '123456'
+        app.config['MYSQL_DATABASE_PASSWORD'] = 'q2296498'
         app.config['MYSQL_DATABASE_DB'] = 'qh_logistics'
-        app.config['MYSQL_DATABASE_HOST'] = 'localhost'
+        app.config['MYSQL_DATABASE_HOST'] = '52.196.88.163'
         mysql.init_app(app)
         self.conn = mysql.connect()
 
@@ -161,6 +161,56 @@ class DaoBase(object):
         cursor = self.conn.cursor()
         cursor.execute(selectString)
         return cursor
+
+    def fetchAllBySearch(self, tableName, where=None):
+
+        cursor = self.doSelectBySearch(tableName, where)
+        result = self.fetchAllAssoc(cursor)
+        self.conn.close()
+
+        if result is None:
+            return 0
+        else:
+            return result
+
+    def doSelectBySearch(self, tableName, where):
+
+        if tableName is None:
+            return 0
+
+        selectString = "SELECT * FROM " + str(tableName)
+
+        if where is None:
+
+            selectString = selectString + " WHERE DELETE_FLAG = 0;"
+
+
+        else:
+
+            newWhere = ''
+
+            for key, value in where.items():
+                if key == 'date_from':
+                    newWhere += 'import_time >= \'' + value + '\' AND '
+                elif key == 'date_to':
+                    newWhere += 'import_time <= \'' + value + '\' AND '
+                elif key == 'status':
+                    newWhere += 'status = ' + value + ' AND '
+                elif key == 'name':
+                    newWhere += 'name LIKE ' + '%' + value + '%' + ' AND '
+                else:
+                    newWhere += key + ' = ' + value + ' AND '
+
+
+            selectString = selectString + " WHERE DELETE_FLAG = 0 AND " + newWhere[:-4] + ";"
+
+        print selectString
+
+
+        cursor = self.conn.cursor()
+        cursor.execute(selectString)
+        return cursor
+
 
     def fetchOneAssoc(self,cursor):
 

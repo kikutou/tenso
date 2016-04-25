@@ -807,6 +807,50 @@ def removeItem():
                            customer = customer, item = item, relOutItem = relOutItem, outboxes = outboxes)
 
 
+@app.route('/adminInbox', methods=['GET', 'POST'])
+def adminInbox():
+
+    error = None
+
+    date_from = ''
+    date_to = ''
+    name = ''
+    status = ''
+
+    if request.method == 'POST':
+        date_from = request.form['date_from']
+        date_to = request.form['date_to']
+        name = request.form['name']
+        status = request.form['status']
+
+        where = {}
+        if date_from:
+            where['date_from'] = date_from + ' 00:00:00'
+        if date_to:
+            where['date_to'] = date_to + ' 23:59:59'
+        if name:
+            where['name'] = name
+        if status:
+            where['status'] = status
+
+        if len(where) == 0:
+            inboxData = Inbox(app).getInboxDataBySearch(None)
+        else:
+            inboxData = Inbox(app).getInboxDataBySearch(where)
+
+    else:
+
+        date_from = datetime.datetime.now().strftime("%Y-%m-%d 00:00:00")
+        date_to = datetime.datetime.now().strftime("%Y-%m-%d 23:59:59")
+
+        inboxData = Inbox(app).getInboxDataBySearch({'date_from':date_from, 'date_to':date_to})
+
+
+
+    return render_template('adminInboxList.html', title = unicode("入库箱管理", 'utf-8'), error = error,
+                           inboxData = inboxData, date_from = date_from[:10], date_to = date_to[:10], name = name, status = status)
+
+
 
 
 

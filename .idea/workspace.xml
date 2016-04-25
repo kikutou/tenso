@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="185cf57d-73d7-4650-9937-7bc77d78282a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/itemAddSuccess.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/outboxDetail.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/removeItem.html" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/addInbox.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/editInbox.html" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.py" afterPath="$PROJECT_DIR$/app.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dao/DaoBaseDBAccess.py" afterPath="$PROJECT_DIR$/dao/DaoBaseDBAccess.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/OutboxModel.py" afterPath="$PROJECT_DIR$/model/OutboxModel.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/itemAdd.html" afterPath="$PROJECT_DIR$/templates/itemAdd.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/InboxModel.py" afterPath="$PROJECT_DIR$/model/InboxModel.py" />
     </list>
     <ignored path="myproject.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,31 +29,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="app.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="app.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.60023177">
-              <caret line="797" column="57" selection-start-line="797" selection-start-column="57" selection-end-line="797" selection-end-column="57" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="removeItem.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/removeItem.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-29.541666">
-              <caret line="53" column="8" selection-start-line="53" selection-start-column="8" selection-end-line="53" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ItemModel.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model/ItemModel.py">
-          <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="17" column="15" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="15" />
+              <caret line="846" column="0" selection-start-line="846" selection-start-column="0" selection-end-line="846" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -71,11 +49,33 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="adminInboxList.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/adminInboxList.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="61" column="28" selection-start-line="61" selection-start-column="28" selection-end-line="61" selection-end-column="28" />
+              <folding>
+                <element signature="n#style#0;n#select#0;n#td#0;n#tr#3;n#table#0;n#form#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="itemAdd.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/itemAdd.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.291667">
-              <caret line="27" column="24" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="78" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="inboxIndex.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/inboxIndex.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="15" column="32" selection-start-line="0" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -85,18 +85,36 @@
         <entry file="file://$PROJECT_DIR$/model/UserAuthModel.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="13" column="29" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="29" />
+              <caret line="27" column="58" selection-start-line="27" selection-start-column="58" selection-end-line="27" selection-end-column="58" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OutboxModel.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model/OutboxModel.py">
+      <file leaf-file-name="InboxModel.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/model/InboxModel.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="18" column="22" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="22" />
+              <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DaoBaseDBAccess.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/dao/DaoBaseDBAccess.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.2505568">
+              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+              <folding>
+                <marker date="1461591191098" expanded="true" signature="1259:1332" placeholder="INSERT INTO `qh_logistics`.`missing_value`... " />
+                <marker date="1461591191098" expanded="true" signature="3923:3981" placeholder="SELECT * FRO... missing_value" />
+                <marker date="1461591191098" expanded="true" signature="4072:4140" placeholder="SELECT * FRO... missing_value" />
+                <marker date="1461591191098" expanded="true" signature="4584:4647" placeholder="SELECT * FRO... missing_value" />
+                <marker date="1461591191098" expanded="true" signature="5212:5226" placeholder="SELECT * FRO... missing_value" />
+                <marker date="1461591191098" expanded="true" signature="5312:5338" placeholder="SELECT * FRO... missing_value" />
+                <marker date="1461591191098" expanded="true" signature="5992:6019" placeholder="SELECT * FRO... missing_value" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -105,17 +123,7 @@
         <entry file="file://$PROJECT_DIR$/model/RelOutItemModel.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="21" column="21" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="itemAddSuccess.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/itemAddSuccess.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.541667">
-              <caret line="36" column="14" selection-start-line="36" selection-start-column="14" selection-end-line="36" selection-end-column="14" />
+              <caret line="28" column="21" selection-start-line="21" selection-start-column="8" selection-end-line="28" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -165,14 +173,16 @@
         <option value="$PROJECT_DIR$/model/MadeInInfo.py" />
         <option value="$PROJECT_DIR$/model/RelInItemModel.py" />
         <option value="$PROJECT_DIR$/model/RelOutItemModel.py" />
-        <option value="$PROJECT_DIR$/model/InboxModel.py" />
         <option value="$PROJECT_DIR$/templates/itemAdd.html" />
-        <option value="$PROJECT_DIR$/dao/DaoBaseDBAccess.py" />
         <option value="$PROJECT_DIR$/model/OutboxModel.py" />
         <option value="$PROJECT_DIR$/templates/itemAddSuccess.html" />
         <option value="$PROJECT_DIR$/templates/outboxDetail.html" />
         <option value="$PROJECT_DIR$/templates/removeItem.html" />
+        <option value="$PROJECT_DIR$/templates/inboxlist.html" />
+        <option value="$PROJECT_DIR$/model/InboxModel.py" />
+        <option value="$PROJECT_DIR$/templates/adminInboxList.html" />
         <option value="$PROJECT_DIR$/app.py" />
+        <option value="$PROJECT_DIR$/dao/DaoBaseDBAccess.py" />
       </list>
     </option>
   </component>
@@ -182,9 +192,9 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1361" />
-    <option name="y" value="29" />
-    <option name="width" value="1782" />
+    <option name="x" value="1573" />
+    <option name="y" value="24" />
+    <option name="width" value="1578" />
     <option name="height" value="1028" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -223,7 +233,6 @@
         </subPane>
         <subPane subId="Default" />
       </pane>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -234,6 +243,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -470,10 +480,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1361" y="29" width="1782" height="1028" extended-state="1" />
+    <frame x="1573" y="24" width="1578" height="1028" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25982043" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29340938" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -624,20 +634,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/editInbox.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/addInbox.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.5">
-          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/customerDelete.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.75">
@@ -708,13 +704,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/inboxIndex.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.375">
-          <caret line="15" column="32" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/home.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.375">
@@ -736,19 +725,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/inboxAdd.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-30.0">
-          <caret line="48" column="21" selection-start-line="48" selection-start-column="21" selection-end-line="48" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/outboxInboxSelectConfirm.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.27459955">
           <caret line="16" column="41" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -756,20 +736,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.625">
           <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dao/DaoBaseDBAccess.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.142858">
-          <caret line="79" column="36" selection-start-line="79" selection-start-column="36" selection-end-line="79" selection-end-column="36" />
-          <folding>
-            <marker date="1461563428220" expanded="true" signature="1253:1326" placeholder="INSERT INTO `qh_logistics`.`missing_value`... " />
-            <marker date="1461563428220" expanded="true" signature="3917:3975" placeholder="SELECT * FRO... missing_value" />
-            <marker date="1461563428220" expanded="true" signature="4066:4134" placeholder="SELECT * FRO... missing_value" />
-            <marker date="1461563428220" expanded="true" signature="4578:4641" placeholder="SELECT * FRO... missing_value" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -777,7 +743,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="13" column="34" selection-start-line="13" selection-start-column="29" selection-end-line="13" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -785,15 +750,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="28" column="39" selection-start-line="28" selection-start-column="27" selection-end-line="28" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/InboxModel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="35" column="21" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -801,7 +757,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-23.125">
           <caret line="37" column="129" selection-start-line="37" selection-start-column="32" selection-end-line="37" selection-end-column="129" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -809,7 +764,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-19.375">
           <caret line="31" column="14" selection-start-line="31" selection-start-column="14" selection-end-line="31" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -817,6 +771,79 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-14.541667">
           <caret line="36" column="14" selection-start-line="36" selection-start-column="14" selection-end-line="36" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/OutboxModel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="22" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/inboxAdd.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.37757438">
+          <caret line="22" column="27" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/itemAdd.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/RelOutItemModel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="28" column="21" selection-start-line="21" selection-start-column="8" selection-end-line="28" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/jquery-2.2.3.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.066815145">
+          <caret line="1" column="476" selection-start-line="1" selection-start-column="476" selection-end-line="1" selection-end-column="476" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/removeItem.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.767184">
+          <caret line="53" column="8" selection-start-line="53" selection-start-column="8" selection-end-line="53" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/ItemModel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.27537796">
+          <caret line="17" column="15" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm50/system/python_stubs/-1247972723/datetime.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33261338">
+          <caret line="60" column="8" selection-start-line="60" selection-start-column="8" selection-end-line="60" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/inboxIndex.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="32" selection-start-line="0" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/InboxModel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -832,56 +859,42 @@
     <entry file="file://$PROJECT_DIR$/model/UserAuthModel.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="29" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="29" />
+          <caret line="27" column="58" selection-start-line="27" selection-start-column="58" selection-end-line="27" selection-end-column="58" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/itemAdd.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.291667">
-          <caret line="27" column="24" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="78" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/OutboxModel.py">
+    <entry file="file://$PROJECT_DIR$/templates/adminInboxList.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="22" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/removeItem.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-29.541666">
-          <caret line="53" column="8" selection-start-line="53" selection-start-column="8" selection-end-line="53" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/ItemModel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="15" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/RelOutItemModel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="21" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="21" />
-          <folding />
+          <caret line="61" column="28" selection-start-line="61" selection-start-column="28" selection-end-line="61" selection-end-column="28" />
+          <folding>
+            <element signature="n#style#0;n#select#0;n#td#0;n#tr#3;n#table#0;n#form#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.60023177">
-          <caret line="797" column="57" selection-start-line="797" selection-start-column="57" selection-end-line="797" selection-end-column="57" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="846" column="0" selection-start-line="846" selection-start-column="0" selection-end-line="846" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dao/DaoBaseDBAccess.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2505568">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding>
+            <marker date="1461591191098" expanded="true" signature="1259:1332" placeholder="INSERT INTO `qh_logistics`.`missing_value`... " />
+            <marker date="1461591191098" expanded="true" signature="3923:3981" placeholder="SELECT * FRO... missing_value" />
+            <marker date="1461591191098" expanded="true" signature="4072:4140" placeholder="SELECT * FRO... missing_value" />
+            <marker date="1461591191098" expanded="true" signature="4584:4647" placeholder="SELECT * FRO... missing_value" />
+            <marker date="1461591191098" expanded="true" signature="5212:5226" placeholder="SELECT * FRO... missing_value" />
+            <marker date="1461591191098" expanded="true" signature="5312:5338" placeholder="SELECT * FRO... missing_value" />
+            <marker date="1461591191098" expanded="true" signature="5992:6019" placeholder="SELECT * FRO... missing_value" />
+          </folding>
         </state>
       </provider>
     </entry>

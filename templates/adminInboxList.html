@@ -1,0 +1,78 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<div>
+<h2>入库箱信息查询</h2>
+    <form action="adminInbox" method="post">
+        <table class="split serch">
+            <tr>
+                <th>入库开始时间</th>
+                <td><input type="text" name="date_from" placeholder="请输入包裹入库时间。格式：2016-04-28" value="{{date_from}}" /></td>
+            </tr>
+            <tr>
+                <th>入库结束时间</th>
+                <td><input type="text" name="date_to" placeholder="请输入包裹入库时间。格式：2016-04-28" value="{{date_to}}" /></td>
+            </tr>
+            <tr>
+                <th>包裹名称</th>
+                <td><input type="text" name="name" placeholder="请输入包裹名称" value="{{name}}"/></td>
+            </tr>
+            <tr>
+                <th>包裹状态</th>
+                <td>
+                    <select name="status" style="text-align: center">
+                        <option value="">请选择包裹状态</option>
+                        <option value="0" {%if status =='0' %} selected="selected" {% endif %}>未处理</option>
+                        <option value="1" {%if status =='1' %} selected="selected" {% endif %}>处理中</option>
+                        <option value="2" {%if status =='2' %} selected="selected" {% endif %}>处理完成</option>
+                    </select>
+                </td>
+            </tr>
+
+        </table>
+        <input type="submit" value="検索">
+    </form>
+</div>
+<hr>
+
+<table class="split total">
+        <tr>
+            <th>入库时间</th>
+            <th>名称</th>
+            <th>备注</th>
+            <th>长（cm）*宽（cm）*高（cm）</th>
+            <th>重量（g）</th>
+            <th>担当者</th>
+            <th>状态</th>
+            <th>编辑</th>
+            <th>删除</th>
+        </tr>
+    {%for key,record in inboxData.items()%}
+        <tr>
+            <td>{{record['import_time']}}</td>
+            <td>{{record['name']}}</td>
+            <td>{{record['memo']}}</td>
+            <td>{{record['length']}}*{{record['width']}}*{{record['height']}}</td>
+            <td>{{record['weight']}}</td>
+            <td>{{record['staff_id']}}</td>
+
+            {% if record['status'] == 0 %}
+                <td>未处理</td>
+            {% elif record['status'] == 1 %}
+                <td>处理中</td>
+            {% elif record['status'] == 2 %}
+                <td>处理完成</td>
+            {% else %}
+                <td>处理错误</td>
+            {% endif %}
+
+            <td class="demo"><a onclick="window.location=('inboxEdit?id={{record.id}}')">编辑</a></td>
+            <td class="demo"><a onclick="window.location=('inboxDelete?id={{record.id}}')">删除</a></td>
+        </tr>
+    {%endfor%}
+    </table>
+
+
+{% endblock %}
+
+

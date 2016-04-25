@@ -36,3 +36,8 @@ class Inbox(object):
     def saveInboxData(self, id, data):
         result = DaoBase().updateRecord('mst_in_box', data, id)
         return result
+
+    def getInboxDataBySearch(self, where):
+
+        result = DaoBase().fetchAllBySearch('mst_in_box', where)
+        return result
