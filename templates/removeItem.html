@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+{% block body %}
+<h2>顾客信息</h2>
+<div class="simple" >
+    <ul>
+        <li>顾客名: {{customer['name']}}</li>
+        <li>电话:{{customer['telephone1']}}</li>
+        <li>住址:{{customer['address']}}</li>
+        <li>邮件:{{customer['email']}}</li>
+    </ul>
+</div>
+<hr>
+
+
+<h2>出库箱信息</h2>
+<div class="simple" >
+    <ul>
+        <li>出库箱名字: {{outbox['name']}}</li>
+        <li>长（cm）*宽（cm）*高（cm）:{{outbox['length']}}*{{outbox['width']}}*{{outbox['height']}}</li>
+        <li>重量:{{outbox['weight']}}</li>
+    </ul>
+</div>
+<hr>
+
+<h2>货物信息</h2>
+<div class="simple" >
+    <ul>
+        <li>商品码: {{item['jan_code']}}</li>
+        <li>商品名（日文）:{{item['jp_name']}}</li>
+        <li>商品名（英文）:{{item['en_name']}}</li>
+        <li>商品名（中文）:{{item['cn_name']}}</li>
+        <li>单价:{{item['unit_price']}}</li>
+        <li>数量:{{relOutItem['item_num']}}</li>
+    </ul>
+</div>
+<hr>
+
+
+<h2>转移到</h2>
+<form action="removeItem" method="post">
+    <input type="hidden" name="src_outbox" value="{{outbox.id}}">
+    <input type="hidden" name="item_id" value="{{item.id}}">
+    <p>出箱</p>
+    <select name="des_outbox">
+        {%for key,outbox in outboxes.items()%}
+        <option value={{outbox.id}}>{{outbox.name}}</option>
+        {%endfor%}
+    </select>
+    <hr>
+
+    <p>数量</p>
+    <input type="number" name="number" value="1">
+
+    <hr>
+
+    <input type="submit" value="确定转移" name="submit">
+    <br>
+    <input type="button" value="返回" onclick="window.location=('outboxInfo?id={{outbox.id}}')">
+</form>
+
+
+{% endblock %}

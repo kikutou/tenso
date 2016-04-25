@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+{% block body %}
+<h2>顾客信息</h2>
+<div class="simple" >
+<li>顾客名: {{customer['name']}}</li>
+<li>电话:{{customer['telephone1']}}</li>
+<li>住址:{{customer['address']}}</li>
+<li>邮件:{{customer['email']}}</li>
+</div>
+<hr>
+<h2>入库箱信息</h2>
+
+<table class="split total">
+        <tr>
+            <th>名称</th>
+            <th>备注</th>
+            <th>长（cm）*宽（cm）*高（cm）</th>
+            <th>重量（g）</th>
+            <th>处理结束</th>
+        </tr>
+    {%for key,record in inboxes.items()%}
+        <form action="itemAddSuccess" method="post">
+        <input type="hidden" name="inbox_id" value="{{record.id}}">
+            <input type="hidden" name="outbox_id" value="">
+        <tr>
+            <td>{{record['name']}}</td>
+            <td>{{record['memo']}}</td>
+            <td>{{record['length']}}*{{record['width']}}*{{record['height']}}</td>
+            <td>{{record['weight']}}</td>
+            <td class="demo"><input type="submit" name="submit" value="处理结束"></td>
+        </tr>
+        </form>
+    {%endfor%}
+</table>
+
+
+<h2>出库箱信息</h2>
+
+<table class="split total">
+        <tr>
+            <th>名称</th>
+            <th>备注</th>
+            <th>长（cm）*宽（cm）*高（cm）</th>
+            <th>重量（g）</th>
+            <th>详情</th>
+            <th>处理结束</th>
+        </tr>
+    {%for key,record in outboxes.items()%}
+    <form action="itemAddSuccess" method="post">
+        <input type="hidden" name="inbox_id" value="">
+        <input type="hidden" name="outbox_id" value="{{record.id}}">
+        <tr>
+            <td>{{record['name']}}</td>
+            <td>{{record['memo']}}</td>
+            <td>{{record['length']}}*{{record['width']}}*{{record['height']}}</td>
+            <td>{{record['weight']}}</td>
+            <td><input type="button" value="详情" onclick="window.location=('outboxInfo?id={{record.id}}')"></td>
+            <td class="demo"><input type="submit" name="submit" value="处理结束"></td>
+        </tr>
+    </form>
+    {%endfor%}
+</table>
+
+
+{% endblock %}

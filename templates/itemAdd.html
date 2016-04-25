@@ -11,46 +11,46 @@
                 {% endif %}
 
 
-                <form action="/inboxEdit" method="post">
+                <form action="/itemAdd" method="post">
 
 
                     <div>
-                        <p>商品码</p><input type="text" name="jan_code" {%if jancode%} value="{{jancode}}"{%else%} value="" {%endif%}>
+                        <p>商品码</p><input type="text" name="jan_code" {%if item.jan_code%} value="{{item.jan_code}}"{%else%} value="" {%endif%}>
                         <hr>
-                        <p>商品名（日文）</p><input type="text" name="jp_name" {%if itemNameJp%} value="{{itemNameJp}}"{%else%} value="" {%endif%}>
+                        <p>商品名（日文）</p><input type="text" name="jp_name" {%if item.jp_name%} value="{{item.jp_name}}"{%else%} value="" {%endif%}>
                         <hr>
-                        <p>商品名（英文）</p><input type="text" name="en_name" value="">
+                        <p>商品名（英文）</p><input type="text" name="en_name" {%if item.en_name%} value="{{item.en_name}}"{%else%} value="" {%endif%}>
                         <hr>
-                        <p>商品名（中文）</p><input type="text" name="cn_name" value="">
+                        <p>商品名（中文）</p><input type="text" name="cn_name" {%if item.cn_name%} value="{{item.cn_name}}"{%else%} value="" {%endif%}>
                         <hr>
-                        <p>单价</p><input type="text" name="cn_name" {%if price%} value="{{price}}"{%else%} value="" {%endif%}>
+                        <p>单价</p><input type="text" name="unit_price" {%if item.unit_price%} value="{{item.unit_price}}"{%else%} value="" {%endif%}>
                         <hr>
                         <p>数量</p><input type="number" name="number" value="1">
                         <hr>
-                        <p>产地</p><select name="country_of_origin">
-                            <option value=1>中国</option>
-                            <option value=2>日本</option>
-                            <option value=3>越南</option>
-                            <option value=4>马来西亚</option>
-                            </select>
+                        <p>备注</p><input type="text" name="memo" {%if item.memo%} value="{{item.memo}}"{%else%} value="" {%endif%}>
                         <hr>
-                        <p>备注</p><input type="text" name="memo" {%if memo%} value="{{memo}}"{%else%} value="" {%endif%}>
+                        <p>产地</p><select name="country_of_origin">
+                            {%for key,madeInInfo in madeInInfos.items()%}
+                                <option value={{madeInInfo.id}}>{{madeInInfo.made_in_country}}</option>
+                            {%endfor%}
+                            </select>
                         <hr>
                         <br>
                         <br>
                         <p>来自</p><select name="inbox">
-                            <option value=1>一号入库箱</option>
-                            <option value=2>二号入库箱</option>
+                            {%for key,inbox in inboxes.items()%}
+                                <option value={{inbox.id}}>{{inbox.name}}</option>
+                            {%endfor%}
                             </select>
                         <hr>
                         <p>出箱</p><select name="outbox">
-                            <option value=1>一号出库箱</option>
-                            <option value=2>二号出库箱</option>
+                            {%for key,outbox in outboxes.items()%}
+                                <option value={{outbox.id}}>{{outbox.name}}</option>
+                            {%endfor%}
                             </select>
                         <hr>
 
                         <p><input type="submit" name="submit" value="追加"></p>
-                        <p><input type=button value="返回" onclick="location.href='/inboxIndex?id={{customerId}}';" ></p>
                     </div>
 
               </form>

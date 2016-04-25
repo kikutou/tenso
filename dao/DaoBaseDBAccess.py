@@ -148,11 +148,12 @@ class DaoBase(object):
                 newWhere = ""
                 for key, value in where.items():
                     if isinstance(value, str) or isinstance(value, unicode):
-                        newWhere += newWhere + key + " = '" + value + "'"
+                        newWhere += newWhere + key + " = '" + value + "' AND "
                     else:
-                        newWhere += newWhere + key + " = '" + str(value) + "'"
+                        newWhere += newWhere + key + " = '" + str(value) + "' AND "
 
-                selectString = "SELECT * FROM " + str(tableName) + " WHERE DELETE_FLAG = 0 AND " + newWhere + ";"
+
+                selectString = "SELECT * FROM " + str(tableName) + " WHERE DELETE_FLAG = 0 AND " + newWhere[:-4] + ";"
 
             else:
                 return 0

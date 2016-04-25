@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+{% block body %}
+<h2>顾客信息</h2>
+<div class="simple" >
+<li>顾客名: {{customer['name']}}</li>
+<li>电话:{{customer['telephone1']}}</li>
+<li>住址:{{customer['address']}}</li>
+<li>邮件:{{customer['email']}}</li>
+</div>
+<hr>
+
+<h2>出库箱信息</h2>
+<div class="simple" >
+<li>出库箱名字: {{outbox['name']}}</li>
+<li>长（cm）*宽（cm）*高（cm）:{{outbox['length']}}*{{outbox['width']}}*{{outbox['height']}}</li>
+<li>重量:{{outbox['weight']}}</li>
+</div>
+<hr>
+
+<h2>货物信息</h2>
+<table class="split total">
+        <tr>
+            <th width="20%">商品码</th>
+            <th>货物名（日文）</th>
+            <th>货物名（英文）</th>
+            <th>货物名（中文）</th>
+            <th>单价</th>
+            <th>数量</th>
+            <th>移箱</th>
+        </tr>
+    {%for record in items%}
+        <tr>
+            <td>{{record['jan_code']}}</td>
+            <td>{{record['jp_name']}}</td>
+            <td>{{record['en_name']}}</td>
+            <td>{{record['cn_name']}}</td>
+            <td>{{record['unit_price']}}</td>
+            <td>{{record['item_num']}}</td>
+            <td><input type="button" value="移箱" onclick="window.location=('removeItem?outbox_id={{outbox.id}}&customer_id={{customer.id}}&item_id={{record.id}}')"></td>
+        </tr>
+    {%endfor%}
+</table>
+
+<input type="button" value="返回" onclick="window.location=('itemAddSuccess')">
+
+
+
+{% endblock %}

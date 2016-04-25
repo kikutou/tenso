@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import sys, os
 sys.path.append(os.path.dirname(os.path.abspath(__file__))+'/model')
+
 from flask import Flask, flash, render_template, request, json, redirect, session, url_for
 from flaskext.mysql import MySQL
 import datetime
@@ -16,6 +17,7 @@ sys.setdefaultencoding("utf-8")
 #model add
 from InboxModel import Inbox
 from OutboxModel import Outbox
+from ItemModel import Item
 from UserAuthModel import User
 from CustomerModel import Customer
 from MadeInInfoModel import MadeInInfo
@@ -25,8 +27,6 @@ from RelOutItemModel import RelOutItem
 app = Flask(__name__)
 app.config['DEBUG'] = True
 app.secret_key = 'super secret key'
-
-
 
 @app.before_request
 def before_request():
@@ -39,8 +39,8 @@ def before_request():
         return
     # ログインされておらずログインページに関するリクエストでもなければリダイレクトする
     else:
-	if request.endpoint not in ('login', 'static'):
-             return redirect('/showLogin')
+        if request.endpoint not in ('login', 'static'):
+            return redirect('/showLogin')
 
 @app.route("/")
 def first():
@@ -81,7 +81,7 @@ def showLogin():
         me = User(email)
         if me.check_password(password) and me.staff_name is not None:
             session['staff_name'] = me.staff_name
-            session['id'] = me.staff_id
+            session['staff_id'] = me.staff_id
             return redirect("home")
         else:
             return "authentication failed"
@@ -133,7 +133,7 @@ def inboxAdd():
                 'customer_id': customer_id,
                 'staff_id': staff_id,
                 'status': 0
-                 }
+             }
 
         result = Inbox(app).addInbox(data)
         if result:
@@ -470,34 +470,341 @@ def customerDelete():
 @app.route('/itemAdd', methods=['GET', 'POST'])
 def itemAdd():
 
-    jancode = request.args.get('jancode')
+    error = None
 
-    try:
-        html = urllib.urlopen('http://www.janken.jp/goods/jk_catalog_syosai.php?jan=' + jancode)
-    except Error as e:
-        print e
-
-    soup = BeautifulSoup(html.read(),"html.parser")
-
-    itemTable = soup.select('table[summary="登録情報"]')[0]
-
-    itemNameJp = itemTable.find_all('tr')[0].find_all('td')[1].h5.string
-
-    price = itemTable.find_all('tr')[13].find_all('td')[1].string
-
-    if price:
-        price = price[1:]
-
-    memo = itemTable.find_all('tr')[14].find_all('td')[1].string
+    if request.method == 'POST':
 
 
 
-    madeInInfos = MadeInInfo(app).getMadeInInfos()
+        '''
+        手順：
+        ①DBに商品情報を書き込む
+        DBから試して、商品情報を取得する。
+            あれば、更新
+            なければ、追加
+
+        ②DBに商品と入庫箱の関係テーブルを書き込む
+        DBから、入庫箱IDと商品IDをセットにして、試して関係を取得する
+            あれば、数目を更新する
+            なければ、追加
+
+        ③DBに商品と出庫箱の関係テーブルを書き込む
+        DBから、出庫箱IDと商品IDをセットにして、試して関係を取得する
+            あれば、数目を更新する
+            なければ、追加
+        '''
+        #①DBに商品情報を書き込む
+        #janコードを取得する。
+        jancode = request.form['jan_code']
+
+        #DBから商品情報を試して取得する。
+        item = Item(app).getItem({'jan_code': jancode})
+
+        data = {
+                'jan_code': jancode,
+                'jp_name': request.form['jp_name'],
+                'en_name': request.form['en_name'],
+                'cn_name': request.form['cn_name'],
+                'unit_price': request.form['unit_price'],
+                'memo': request.form['memo'],
+                'country_of_origin': request.form['country_of_origin']
+            }
+
+        if item:
+
+            itemId = item['id']
+
+            #あれば、更新
+            result = Item(app).saveItem(itemId, data)
+
+        else:
+            #なければ、追加
+            result = Item(app).addItem(data)
+            if not result:
+                error = unicode('商品添加失败', 'utf-8')
+
+
+        #②DBに商品と入庫箱の関係テーブルを書き込む
+
+        #DBから商品情報を試して取得する。
+        item = Item(app).getItem({'jan_code': jancode})
+        itemId = item['id']
+
+        inboxId = request.form['inbox']
+        itemNum = request.form['number']
+        checkTime = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+        relInItem = RelInItem(app).getRelInItem({'in_box_id': inboxId,'item_id':itemId})
+
+        if relInItem:
+            relInItemId = relInItem['id']
+
+            data = {
+                'check_time': checkTime,
+                'in_box_id': inboxId,
+                'item_id': itemId,
+                'item_num': int(itemNum) + int(relInItem['item_num'])
+            }
+
+            result = RelInItem(app).saveRelInItem(int(relInItemId),data)
+            if not result:
+                error = unicode('商品添加失败', 'utf-8')
+        else:
+
+            data = {
+                'check_time': checkTime,
+                'in_box_id': inboxId,
+                'item_id': itemId,
+                'item_num': int(itemNum)
+            }
+
+            result = RelInItem(app).addRelInItem(data)
+            if not result:
+                error = unicode('商品添加失败', 'utf-8')
+
+
+        #②DBに商品と出庫箱の関係テーブルを書き込む
+        outboxId = request.form['outbox']
+
+        relOutItem = RelOutItem(app).getRelOutItem({'out_box_id': outboxId,'item_id':itemId})
+
+        if relOutItem:
+            relOutItemId = relOutItem['id']
+
+            data = {
+                'check_time': checkTime,
+                'out_box_id': outboxId,
+                'item_id': itemId,
+                'item_num': int(itemNum) + int(relOutItem['item_num'])
+            }
+
+            result = RelOutItem(app).saveRelOutItem(int(relOutItemId),data)
+            if not result:
+                error = unicode('商品添加失败', 'utf-8')
+        else:
+
+            data = {
+                'check_time': checkTime,
+                'out_box_id': outboxId,
+                'item_id': itemId,
+                'item_num': int(itemNum)
+            }
+
+            result = RelOutItem(app).addRelOutItem(data)
+            if not result:
+                error = unicode('商品添加失败', 'utf-8')
+
+        if not error:
+            flash(unicode('顾客删除成功', 'utf-8'))
+            return redirect("itemAddSuccess")
 
 
 
-    return render_template('itemAdd.html', title = unicode("商品添加", 'utf-8'),jancode=jancode, itemNameJp = itemNameJp,
-                           price = price, memo = memo, madeInInfos = madeInInfos, )
+
+    else:
+
+        '''
+        手順
+         ①スマホで、アプリを使って、商品のJANコードを取得する。
+         ②DBから商品情報を試して取得する。
+            取得できれば、DBのテーブルの該当情報をページ上に表示する。
+            取得できなければ、ウェブサイトから、商品情報を取得する。
+
+        産地、入庫箱と出庫箱をDBから取得する
+
+        ③取得された商品情報を手動で、補足する。
+        ④入庫箱を選び
+        ⑤出庫箱を選び
+        ⑥情報をDBに反映する。
+        '''
+
+        #janコードを取得する。
+        jancode = request.args.get('jancode')
+
+        #DBから商品情報を試して取得する。
+        item = Item(app).getItem({'jan_code': jancode})
+
+        if not item:
+            #取得できなければ、ウェブサイトから、商品情報を取得する。
+            try:
+                html = urllib.urlopen('http://www.janken.jp/goods/jk_catalog_syosai.php?jan=' + jancode)
+            except Error as e:
+                print e
+
+            soup = BeautifulSoup(html.read(),"html.parser")
+
+            itemTable = soup.select('table[summary="登録情報"]')[0]
+            #商品の日本語名前
+            itemNameJp = itemTable.find_all('tr')[0].find_all('td')[1].h5.string
+            #商品の参照単価
+            price = itemTable.find_all('tr')[13].find_all('td')[1].string
+
+            if price:
+                price = price[1:]
+            #商品の備考（分類）
+            memo = itemTable.find_all('tr')[14].find_all('td')[1].string
+
+            item = {
+                'jan_code': jancode,
+                'jp_name': itemNameJp,
+                'unit_price': price,
+                'memo': memo
+            }
+
+    madeInInfos = MadeInInfo(app).getMadeInInfos(None)
+    inboxes = Inbox(app).getInboxDatas({'status': 1, 'staff_id':session.get('staff_id')})
+    outboxes = Outbox(app).getOutboxDatas({'status': 0, 'staff_id':session.get('staff_id')})
+
+
+    return render_template('itemAdd.html', title = unicode("商品添加", 'utf-8'),item = item, madeInInfos = madeInInfos,
+                           inboxes = inboxes, outboxes = outboxes ,error = error)
+
+
+@app.route('/itemAddSuccess', methods=['GET', 'POST'])
+def itemAddSuccess():
+
+    error = None
+
+    if request.method == 'POST':
+        inboxId = request.form['inbox_id']
+        outboxId = request.form['outbox_id']
+
+        if inboxId and not outboxId:
+            Inbox(app).saveInboxData(int(inboxId),{'status': 2})
+        elif not inboxId and outboxId:
+            Outbox(app).saveOutboxData(int(outboxId),{'status': 1})
+        else:
+            error = '未知错误'
+
+
+    inboxes = Inbox(app).getInboxDatas({'status': 1, 'staff_id': session.get('staff_id')})
+
+    if inboxes:
+        inbox = inboxes[0]
+        customerId = inbox['customer_id']
+        customer = Customer(app).getCustomer(int(customerId))
+        if not customer:
+            error = '没有找到相应的顾客信息'
+
+    outboxes = Outbox(app).getOutboxDatas({'status': 0, 'staff_id': session.get('staff_id')})
+
+    return render_template('itemAddSuccess.html', title = unicode("货物添加成功", 'utf-8'), error = error, inboxes = inboxes,
+                           customer = customer, outboxes = outboxes)
+
+
+@app.route('/outboxInfo', methods=['GET', 'POST'])
+def outboxInfo():
+
+    error = None
+
+    outboxId = request.args.get('id')
+
+    outbox = Outbox(app).getOutboxData(int(outboxId))
+
+    customerId = outbox['customer_id']
+
+    customer = Customer(app).getCustomer(int(customerId))
+
+    relOutItems = RelOutItem(app).getRelOutItems({'out_box_id': outboxId})
+
+    items = []
+
+    for key,relOutItem in relOutItems.items():
+        itemId = relOutItem['item_id']
+        itemNum = relOutItem['item_num']
+
+        item = Item(app).getItem(int(itemId))
+        itemNameJp = item['jp_name']
+        itemNameEn = item['en_name']
+        itemNameCn = item['cn_name']
+        itemPrice = item['unit_price']
+        jancode = item['jan_code']
+
+        data = {
+            'id': itemId,
+            'item_num': itemNum,
+            'jp_name': itemNameJp,
+            'en_name': itemNameEn,
+            'cn_name': itemNameCn,
+            'jan_code': jancode,
+            'unit_price': itemPrice
+        }
+
+        items.append(data)
+
+
+    return render_template('outboxInfo.html', title = unicode("出库箱详细", 'utf-8'), error = error, outbox = outbox,
+                           customer = customer, items = items)
+
+
+@app.route('/removeItem', methods=['GET', 'POST'])
+def removeItem():
+
+    error = None
+
+    if request.method == 'POST':
+        srcOutbox = request.form['src_outbox']
+        desOutbox = request.form['des_outbox']
+        itemId = request.form['item_id']
+        num = request.form['number']
+
+        '''
+        ①移動する数目をチェックする
+        ②元のoutboxから、数目を更新
+            全部移動する場合、元のレコードを削除
+            一部移動する場合、数目を更新する
+        ③移動先のoutboxの数目を更新
+            すでにある場合、数目を増加して、更新する
+            なければ、新規追加
+
+        '''
+        #①移動する数目をチェックする
+        relOutItem = RelOutItem(app).getRelOutItem({'out_box_id': srcOutbox, 'item_id': itemId})
+        oldNum = relOutItem['item_num']
+        if int(num) > int(oldNum):
+            error = '移动数目不正确，请重新输入'
+
+        if not error:
+            #②元のoutboxから、数目を更新
+            if int(num) == int(oldNum):
+                RelOutItem(app).saveRelOutItem(int(relOutItem['id']),{'delete_flag': 1})
+            else:
+                leftNum = int(oldNum) - int(num)
+                RelOutItem(app).saveRelOutItem(int(relOutItem['id']),{'item_num': leftNum})
+
+            #移動先のoutboxの数目を更新
+            desRelOutItem = RelOutItem(app).getRelOutItem({'out_box_id': desOutbox, 'item_id': itemId})
+            if desRelOutItem:
+                #すでにある場合、数目を増加して、更新する
+                newNum = int(desRelOutItem['item_num']) + int(num)
+                RelOutItem(app).saveRelOutItem(int(desRelOutItem['id']),{'item_num': newNum})
+            else:
+                data = {
+                    'check_time': datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+                    'out_box_id': desOutbox,
+                    'item_id': itemId,
+                    'item_num': num
+                }
+                RelOutItem(app).addRelOutItem(data)
+
+            flash('货物移动成功')
+
+            return redirect('/outboxInfo?id=' + srcOutbox)
+
+    customerId = request.args.get('customer_id')
+    outboxId = request.args.get('outbox_id')
+    itemId = request.args.get('item_id')
+
+    customer = Customer(app).getCustomer(int(customerId))
+    outbox = Outbox(app).getOutboxData(int(outboxId))
+    item = Item(app).getItem(int(itemId))
+    relOutItem = RelOutItem(app).getRelOutItems({'out_box_id': outboxId, 'item_id': item['id']})
+
+    outboxes = Outbox(app).getOutboxDatas({'status': 0, 'staff_id': session.get('staff_id'), 'customer_id': customerId})
+
+
+    return render_template('removeItem.html', title = unicode("出库箱详细", 'utf-8'), error = error, outbox = outbox,
+                           customer = customer, item = item, relOutItem = relOutItem, outboxes = outboxes)
 
 
 

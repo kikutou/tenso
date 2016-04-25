@@ -16,8 +16,8 @@ class Outbox():
         customerRecord = DaoBase().fetchOne('mst_customer', id)
         return customerRecord
 
-    def getOutboxDatas(self):
-        outboxDatas = DaoBase().fetchAll('mst_out_box')
+    def getOutboxDatas(self,where):
+        outboxDatas = DaoBase().fetchAll('mst_out_box',where)
         return outboxDatas
 
     def getOutboxesByCustomerId(self, id):
@@ -37,6 +37,6 @@ class Outbox():
         inboxData = DaoBase().fetchOne('mst_out_box', id)
         return inboxData
 
-    def saveInboxData(self, id, datas):
+    def saveOutboxData(self, id, datas):
         result = DaoBase().updateRecord('mst_out_box', datas, id)
         return result

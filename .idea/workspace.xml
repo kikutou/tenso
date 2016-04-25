@@ -2,15 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="185cf57d-73d7-4650-9937-7bc77d78282a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/model/ItemModel.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/model/MadeInInfoModel.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/model/RelInItemModel.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/model/RelOutItemModel.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/itemAddSuccess.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/outboxDetail.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/removeItem.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.py" afterPath="$PROJECT_DIR$/app.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/InboxModel.py" afterPath="$PROJECT_DIR$/model/InboxModel.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dao/DaoBaseDBAccess.py" afterPath="$PROJECT_DIR$/dao/DaoBaseDBAccess.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/OutboxModel.py" afterPath="$PROJECT_DIR$/model/OutboxModel.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/itemAdd.html" afterPath="$PROJECT_DIR$/templates/itemAdd.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/venv/pip-selfcheck.json" afterPath="$PROJECT_DIR$/venv/pip-selfcheck.json" />
     </list>
     <ignored path="myproject.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,8 +34,18 @@
       <file leaf-file-name="app.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.54899776">
-              <caret line="483" column="72" selection-start-line="483" selection-start-column="72" selection-end-line="483" selection-end-column="72" />
+            <state vertical-scroll-proportion="0.60023177">
+              <caret line="797" column="57" selection-start-line="797" selection-start-column="57" selection-end-line="797" selection-end-column="57" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="removeItem.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/removeItem.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-29.541666">
+              <caret line="53" column="8" selection-start-line="53" selection-start-column="8" selection-end-line="53" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -46,37 +55,17 @@
         <entry file="file://$PROJECT_DIR$/model/ItemModel.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="29" column="21" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
+              <caret line="17" column="15" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="15" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MadeInInfoModel.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model/MadeInInfoModel.py">
+      <file leaf-file-name="CustomerModel.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/model/CustomerModel.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="5" column="8" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RelInItemModel.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model/RelInItemModel.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="8" column="15" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="15" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RelOutItemModel.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model/RelOutItemModel.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="8" column="16" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="16" />
+              <caret line="11" column="19" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -85,18 +74,18 @@
       <file leaf-file-name="itemAdd.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/itemAdd.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-20.0">
-              <caret line="32" column="55" selection-start-line="32" selection-start-column="55" selection-end-line="32" selection-end-column="55" />
+            <state vertical-scroll-proportion="-14.291667">
+              <caret line="27" column="24" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="78" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="inboxAdd.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/inboxAdd.html">
+      <file leaf-file-name="UserAuthModel.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/model/UserAuthModel.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.875">
-              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="13" column="29" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -106,27 +95,27 @@
         <entry file="file://$PROJECT_DIR$/model/OutboxModel.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="30" column="17" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="17" />
+              <caret line="18" column="22" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="InboxModel.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model/InboxModel.py">
+      <file leaf-file-name="RelOutItemModel.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/model/RelOutItemModel.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="23" column="25" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
+              <caret line="21" column="21" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="21" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="outboxCustomerSelect.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/outboxCustomerSelect.html">
+      <file leaf-file-name="itemAddSuccess.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/itemAddSuccess.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+            <state vertical-scroll-proportion="-14.541667">
+              <caret line="36" column="14" selection-start-line="36" selection-start-column="14" selection-end-line="36" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -137,8 +126,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -168,18 +157,22 @@
         <option value="$PROJECT_DIR$/templates/inboxIndex.html" />
         <option value="$PROJECT_DIR$/templates/home.html" />
         <option value="$PROJECT_DIR$/templates/outboxCustomerSelect.html" />
-        <option value="$PROJECT_DIR$/model/OutboxModel.py" />
         <option value="$PROJECT_DIR$/templates/outboxInboxSelect.html" />
         <option value="$PROJECT_DIR$/templates/outboxInboxSelectConfirm.html" />
         <option value="$PROJECT_DIR$/templates/outboxIndex.html" />
         <option value="$PROJECT_DIR$/templates/outboxAdd.html" />
-        <option value="$PROJECT_DIR$/templates/itemAdd.html" />
         <option value="$PROJECT_DIR$/model/ItemModel.py" />
         <option value="$PROJECT_DIR$/model/MadeInInfo.py" />
         <option value="$PROJECT_DIR$/model/RelInItemModel.py" />
         <option value="$PROJECT_DIR$/model/RelOutItemModel.py" />
-        <option value="$PROJECT_DIR$/app.py" />
         <option value="$PROJECT_DIR$/model/InboxModel.py" />
+        <option value="$PROJECT_DIR$/templates/itemAdd.html" />
+        <option value="$PROJECT_DIR$/dao/DaoBaseDBAccess.py" />
+        <option value="$PROJECT_DIR$/model/OutboxModel.py" />
+        <option value="$PROJECT_DIR$/templates/itemAddSuccess.html" />
+        <option value="$PROJECT_DIR$/templates/outboxDetail.html" />
+        <option value="$PROJECT_DIR$/templates/removeItem.html" />
+        <option value="$PROJECT_DIR$/app.py" />
       </list>
     </option>
   </component>
@@ -189,8 +182,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1397" />
-    <option name="y" value="52" />
+    <option name="x" value="1361" />
+    <option name="y" value="29" />
     <option name="width" value="1782" />
     <option name="height" value="1028" />
   </component>
@@ -205,7 +198,7 @@
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
+    <navigator currentView="Scope" currentSubView="Changed Files" proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -219,6 +212,17 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope">
+        <subPane subId="Changed Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+        <subPane subId="Default" />
+      </pane>
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -230,7 +234,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -467,7 +470,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1397" y="52" width="1782" height="1028" extended-state="0" />
+    <frame x="1361" y="29" width="1782" height="1028" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25982043" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -503,33 +506,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="2" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/customerEdit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="84" selection-start-line="8" selection-start-column="84" selection-end-line="8" selection-end-column="84" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flask/setup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/customerAdd.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -657,13 +638,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/customer.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.0">
-          <caret line="8" column="34" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/customerDelete.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.75">
@@ -675,22 +649,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.5416665">
           <caret line="20" column="28" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/UserAuthModel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="29" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/CustomerModel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -764,26 +722,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/outboxInboxSelect.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-23.125">
-          <caret line="37" column="77" selection-start-line="37" selection-start-column="77" selection-end-line="37" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/outboxInboxSelectConfirm.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="41" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/outboxIndex.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="5" column="34" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -791,27 +733,50 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/inboxAdd.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-30.0">
+          <caret line="48" column="21" selection-start-line="48" selection-start-column="21" selection-end-line="48" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/outboxInboxSelectConfirm.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.27459955">
+          <caret line="16" column="41" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/outboxCustomerSelect.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.625">
+          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="38" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dao/DaoBaseDBAccess.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="67" column="20" selection-start-line="67" selection-start-column="20" selection-end-line="67" selection-end-column="20" />
+        <state vertical-scroll-proportion="-14.142858">
+          <caret line="79" column="36" selection-start-line="79" selection-start-column="36" selection-end-line="79" selection-end-column="36" />
           <folding>
-            <marker date="1460957888000" expanded="true" signature="1253:1326" placeholder="INSERT INTO `qh_logistics`.`missing_value`... " />
-            <marker date="1460957888000" expanded="true" signature="3917:3975" placeholder="SELECT * FRO... missing_value" />
-            <marker date="1460957888000" expanded="true" signature="4066:4134" placeholder="SELECT * FRO... missing_value" />
-            <marker date="1460957888000" expanded="true" signature="4567:4630" placeholder="SELECT * FRO... missing_value" />
+            <marker date="1461563428220" expanded="true" signature="1253:1326" placeholder="INSERT INTO `qh_logistics`.`missing_value`... " />
+            <marker date="1461563428220" expanded="true" signature="3917:3975" placeholder="SELECT * FRO... missing_value" />
+            <marker date="1461563428220" expanded="true" signature="4066:4134" placeholder="SELECT * FRO... missing_value" />
+            <marker date="1461563428220" expanded="true" signature="4578:4641" placeholder="SELECT * FRO... missing_value" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/outboxCustomerSelect.html">
+    <entry file="file://$PROJECT_DIR$/model/MadeInInfoModel.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+          <caret line="13" column="34" selection-start-line="13" selection-start-column="29" selection-end-line="13" selection-end-column="34" />
           <folding />
         </state>
       </provider>
@@ -819,39 +784,7 @@
     <entry file="file://$PROJECT_DIR$/model/RelInItemModel.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="15" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/RelOutItemModel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="16" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/itemAdd.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.0">
-          <caret line="32" column="55" selection-start-line="32" selection-start-column="55" selection-end-line="32" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/inboxAdd.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.875">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/OutboxModel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="30" column="17" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="17" />
+          <caret line="28" column="39" selection-start-line="28" selection-start-column="27" selection-end-line="28" selection-end-column="39" />
           <folding />
         </state>
       </provider>
@@ -859,7 +792,71 @@
     <entry file="file://$PROJECT_DIR$/model/InboxModel.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="23" column="25" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
+          <caret line="35" column="21" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/outboxInboxSelect.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-23.125">
+          <caret line="37" column="129" selection-start-line="37" selection-start-column="32" selection-end-line="37" selection-end-column="129" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/customer.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-19.375">
+          <caret line="31" column="14" selection-start-line="31" selection-start-column="14" selection-end-line="31" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/itemAddSuccess.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.541667">
+          <caret line="36" column="14" selection-start-line="36" selection-start-column="14" selection-end-line="36" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/CustomerModel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="19" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/UserAuthModel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="29" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/itemAdd.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.291667">
+          <caret line="27" column="24" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/OutboxModel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="22" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/removeItem.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-29.541666">
+          <caret line="53" column="8" selection-start-line="53" selection-start-column="8" selection-end-line="53" selection-end-column="8" />
           <folding />
         </state>
       </provider>
@@ -867,23 +864,23 @@
     <entry file="file://$PROJECT_DIR$/model/ItemModel.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="21" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
+          <caret line="17" column="15" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="15" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model/MadeInInfoModel.py">
+    <entry file="file://$PROJECT_DIR$/model/RelOutItemModel.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="8" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
+          <caret line="21" column="21" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.54899776">
-          <caret line="483" column="72" selection-start-line="483" selection-start-column="72" selection-end-line="483" selection-end-column="72" />
+        <state vertical-scroll-proportion="0.60023177">
+          <caret line="797" column="57" selection-start-line="797" selection-start-column="57" selection-end-line="797" selection-end-column="57" />
           <folding />
         </state>
       </provider>
