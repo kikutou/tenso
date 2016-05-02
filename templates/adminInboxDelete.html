@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block body %}
+
+{% if error %}
+<!-- error start //エラー時のみ表示 -->
+<div class="error-box">
+    <h2>错误</h2>
+    <p>{{error}}</p>
+</div>
+<!-- error end -->
+{% endif %}
+
+<form action="adminInboxDelete" method="post">
+    <p>确定要删除吗？</p>
+    <input type="hidden" name="id" value="{{id}}">
+    <p><input type=submit value="确定"></p>
+    <p><input type=button value="取消" onclick=location.href="/adminInbox"; ></p>
+</form>
+{% endblock %}

@@ -40,3 +40,8 @@ class Outbox():
     def saveOutboxData(self, id, datas):
         result = DaoBase().updateRecord('mst_out_box', datas, id)
         return result
+
+    def getOutboxDataBySearch(self, where):
+
+        result = DaoBase().fetchAllBySearch('mst_out_box', where)
+        return result

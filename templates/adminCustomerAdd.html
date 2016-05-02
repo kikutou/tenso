@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+{% block body %}
+
+{% if error %}
+<!-- error start //エラー時のみ表示 -->
+<div class="error-box">
+    <h2>错误</h2>
+    <p>{{error}}</p>
+</div>
+<!-- error end -->
+{% endif %}
+
+<form action="/adminCustomerAdd" method="post">
+
+    <div>
+        <p>名称</p><input type="text" name="name" value="">
+        <hr>
+        <p>真实姓名</p><input type="text" name="real_name" value="">
+        <hr>
+        <p>地址</p><input type="text" name="address" value="">
+        <hr>
+        <p>电话1</p><input type="text" name="telephone1" value="">
+        <hr>
+        <p>电话2</p><input type="text" name="telephone2" value="">
+        <hr>
+        <p>电子邮件</p><input type="text" name="email" value="">
+        <hr>
+        <p>身份证号</p><input type="text" name="id_card_no" value="">
+        <hr>
+        <p>公司名</p><input type="text" name="company_name" value="">
+        <hr>
+        <p>公司地址</p><input type="text" name="company_address" value="">
+        <hr>
+        <p>公司电话</p><input type="text" name="company_telephone" value="">
+        <hr>
+
+
+
+        <p><input type="submit" name="submit" value="追加"></p>
+        <p><input type=button value="返回" onclick="location.href='/adminCustomer';" ></p>
+    </div>
+
+</form>
+
+
+{% endblock %}

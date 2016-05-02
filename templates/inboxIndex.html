@@ -7,7 +7,7 @@
 <li>住址:{{customer['address']}}</li>
 <li>邮件:{{customer['email']}}</li>
 </div>
-<p><a class="btn btn-lg btn-success" href="/inboxAdd?customerId={{customer.id}}" role="button">入库箱追加</a>
+<p><a class="btn" href="/inboxAdd?customerId={{customer.id}}" role="button">入库箱追加</a>
 <table class="split total">
         <tr>
             <th>入库时间</th>
@@ -37,8 +37,8 @@
                 <td>处理错误</td>
             {% endif %}
 
-            <td class="demo"><a onclick="window.location=('inboxEdit?id={{record.id}}')">编辑</a></td>
-            <td class="demo"><a onclick="window.location=('inboxDelete?id={{record.id}}&customer_id={{customer.id}}')">删除</a></td>
+            <td><a class="btnt" onclick="window.location=('inboxEdit?id={{record.id}}')">编辑</a></td>
+            <td><a class="btnt" onclick="window.location=('inboxDelete?id={{record.id}}&customer_id={{customer.id}}')">删除</a></td>
         </tr>
     {%endfor%}
     </table>

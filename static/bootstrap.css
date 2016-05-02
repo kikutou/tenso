@@ -11,6 +11,7 @@ html {
 }
 body {
   margin: 0;
+  width: 100%;
 }
 article,
 aside,
@@ -1592,17 +1593,17 @@ pre code {
 }
 @media (min-width: 768px) {
   .container {
-    width: 750px;
+    width:200%;
   }
 }
 @media (min-width: 992px) {
   .container {
-    width: 970px;
+    width:100%;
   }
 }
 @media (min-width: 1200px) {
   .container {
-    width: 1170px;
+    width:100%;
   }
 }
 .container-fluid {
@@ -4986,7 +4987,7 @@ a.badge:focus {
   border-radius: 6px;
 }
 .jumbotron .container {
-  max-width: 100%;
+  min-width: 100%;
 }
 @media screen and (min-width: 768px) {
   .jumbotron {
@@ -4995,8 +4996,8 @@ a.badge:focus {
   }
   .container .jumbotron,
   .container-fluid .jumbotron {
-    padding-right: 60px;
-    padding-left: 60px;
+    padding-right: 0px;
+    padding-left: 0px;
   }
   .jumbotron h1,
   .jumbotron .h1 {

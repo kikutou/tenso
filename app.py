@@ -23,6 +23,7 @@ from CustomerModel import Customer
 from MadeInInfoModel import MadeInInfo
 from RelInItemModel import RelInItem
 from RelOutItemModel import RelOutItem
+from StaffModel import Staff
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
@@ -57,17 +58,18 @@ def home():
 @app.route('/logout', methods=['GET', 'POST'])
 def showSignUp():
     if request.method == 'POST':
-        user = User()
-        newStaffData = {
-            'name' : request.form['inputName'],
-            'email' : request.form['inputEmail'],
-            'password' : request.form['inputPassword']
-        }
-        result = user.do_register(newStaffData)
-        if result:
-            return render_template('login.html')
-        else:
-            return render_template('logout.html')
+        pass
+        # user = User()
+        # newStaffData = {
+        #     'name' : request.form['inputName'],
+        #     'email' : request.form['inputEmail'],
+        #     'password' : request.form['inputPassword']
+        # }
+        # result = user.do_register(newStaffData)
+        # if result:
+        #     return render_template('login.html')
+        # else:
+        #     return render_template('logout.html')
     else:
         return render_template('logout.html')
 
@@ -82,6 +84,7 @@ def showLogin():
         if me.check_password(password) and me.staff_name is not None:
             session['staff_name'] = me.staff_name
             session['staff_id'] = me.staff_id
+            session['auth'] = me.authority
             return redirect("home")
         else:
             return "authentication failed"
@@ -326,7 +329,48 @@ def outboxAdd():
         return render_template('outboxAdd.html', title=unicode('出库箱追加', 'utf-8'), customerId = customerId, error= error)
 
 
+@app.route('/outboxEdit', methods=['GET', 'POST'])
+def outboxEdit():
 
+    error = None
+    if request.method == 'POST':
+
+
+
+        outboxId = request.form['id']
+
+        customer_id = request.form['customer_id']
+        staff_id = session.get('staff_id')
+        name = request.form['name']
+        memo = request.form['memo']
+        length = request.form['length']
+        width = request.form['width']
+        height = request.form['height']
+        weight = request.form['weight']
+        data = {'name' : name,
+                 'memo' : memo,
+                 'length' : length,
+                 'width' : width,
+                 'height' : height,
+                 'weight' : weight,
+                'customer_id': customer_id,
+                'staff_id': staff_id,
+                'status': 0
+                 }
+
+        result = Outbox(app).saveOutboxData(data, int(outboxId))
+        if result:
+            flash('出库箱更新成功')
+            return redirect('/outboxIndex?id=' + customer_id)
+        else:
+            error='出库箱更新失败'
+    else:
+
+        outboxId = request.args.get('id')
+
+    outboxData = Outbox(app).getOutboxData(int(outboxId))
+
+    return render_template('outboxAdd.html', title=unicode('出库箱追加', 'utf-8'), customerId = outboxData['customer_id'], outboxId = outboxId, outbox = outboxData, error= error)
 
 
 @app.route('/customer')
@@ -845,14 +889,537 @@ def adminInbox():
 
         inboxData = Inbox(app).getInboxDataBySearch({'date_from':date_from, 'date_to':date_to})
 
+    newInboxData = {}
+
+    for key,record in inboxData.items():
+        staffId = record['staff_id']
+        staff = Staff(app).getStaff(int(staffId))
+        if staff:
+            record['staff_name'] = staff['name']
+        else:
+            record['staff_name'] = '未设定'
+
+        newInboxData[key] = record
+
+
 
 
     return render_template('adminInboxList.html', title = unicode("入库箱管理", 'utf-8'), error = error,
-                           inboxData = inboxData, date_from = date_from[:10], date_to = date_to[:10], name = name, status = status)
+                           inboxData = newInboxData, date_from = date_from[:10], date_to = date_to[:10], name = name, status = status)
 
 
+@app.route('/adminInboxEdit', methods=['GET', 'POST'])
+def adminInboxEdit():
+
+    error = None
+    if request.method == 'POST':
+
+        inboxId = request.form['id']
+
+        customer_id = request.form['customer_id']
+        staff_id = request.form['staff_id']
+        name = request.form['name']
+        memo = request.form['memo']
+        length = request.form['length']
+        width = request.form['width']
+        height = request.form['height']
+        weight = request.form['weight']
+        status = request.form['status']
+        data = {'name' : name,
+                 'memo' : memo,
+                 'length' : length,
+                 'width' : width,
+                 'height' : height,
+                 'weight' : weight,
+                'customer_id': customer_id,
+                'staff_id': staff_id,
+                'status': status
+                 }
+
+        result = Inbox(app).saveInboxData(int(inboxId),data)
+        if result:
+            flash('入库箱更新成功')
+            return redirect('/adminInbox')
+        else:
+            error='入库箱更新失败'
+    else:
+
+        inboxId = request.args.get('id')
+
+    inboxData = Inbox(app).getInboxData(int(inboxId))
+    customers = Customer(app).getCustomers()
+    staffs = Staff(app).getStaffs()
+
+    return render_template('adminInboxEdit.html', title=unicode('入库箱追加', 'utf-8'), customers = customers,
+                           staffs = staffs, inbox = inboxData, error= error)
+
+@app.route('/adminInboxAdd', methods=['GET', 'POST'])
+def adminInboxAdd():
+
+    error = None
+    if request.method == 'POST':
+
+        customer_id = request.form['customer_id']
+        staff_id = request.form['staff_id']
+        name = request.form['name']
+        memo = request.form['memo']
+        length = request.form['length']
+        width = request.form['width']
+        height = request.form['height']
+        weight = request.form['weight']
+        status = request.form['status']
+        data = {'name' : name,
+                 'memo' : memo,
+                 'length' : length,
+                 'width' : width,
+                 'height' : height,
+                 'weight' : weight,
+                'customer_id': customer_id,
+                'staff_id': staff_id,
+                'status': status
+        }
+
+        result = Inbox(app).addInbox(data)
+        if result:
+            flash('入库箱更新成功')
+            return redirect('/adminInbox')
+        else:
+            error='入库箱更新失败'
+
+    customers = Customer(app).getCustomers()
+    staffs = Staff(app).getStaffs()
+
+    return render_template('adminInboxAdd.html', title=unicode('入库箱追加', 'utf-8'), customers = customers,
+                           staffs = staffs, error= error)
+
+@app.route('/adminInboxDelete', methods=['GET', 'POST'])
+def adminInboxDelete():
+
+    error = None
+
+    if request.method == 'POST':
+        id = request.form['id']
+
+        data = {
+            'delete_flag': 1
+        }
+
+        result = Inbox(app).saveInboxData(int(id), data)
+        if result:
+            flash(unicode('入库箱删除成功', 'utf-8'))
+            return redirect("adminInbox")
+        else:
+            error = unicode('入库箱删除失败', 'utf-8')
+
+    else:
+
+        id = request.args.get('id')
+
+    return render_template('adminInboxDelete.html', title = unicode("确定删除", 'utf-8'), id = id, error = error)
 
 
+@app.route('/adminOutbox', methods=['GET', 'POST'])
+def adminOutbox():
+
+    error = None
+
+    date_from = ''
+    date_to = ''
+    name = ''
+    status = ''
+
+    if request.method == 'POST':
+        date_from = request.form['date_from']
+        date_to = request.form['date_to']
+        name = request.form['name']
+        status = request.form['status']
+
+        where = {}
+        if date_from:
+            where['date_from'] = date_from + ' 00:00:00'
+        if date_to:
+            where['date_to'] = date_to + ' 23:59:59'
+        if name:
+            where['name'] = name
+        if status:
+            where['status'] = status
+
+        if len(where) == 0:
+            outboxData = Outbox(app).getOutboxDataBySearch(None)
+        else:
+            outboxData = Outbox(app).getOutboxDataBySearch(where)
+
+    else:
+
+        date_from = datetime.datetime.now().strftime("%Y-%m-%d 00:00:00")
+        date_to = datetime.datetime.now().strftime("%Y-%m-%d 23:59:59")
+
+        outboxData = Outbox(app).getOutboxDataBySearch(None)
+
+    newOutboxData = {}
+
+    for key,record in outboxData.items():
+        staffId = record['staff_id']
+        staffName = Staff(app).getStaff(int(staffId))['name']
+        record['staff_name'] = staffName
+        newOutboxData[key] = record
+
+
+    return render_template('adminOutboxList.html', title = unicode("出库箱管理", 'utf-8'), error = error,
+                           outboxData = newOutboxData, date_from = date_from[:10], date_to = date_to[:10], name = name, status = status)
+
+@app.route('/adminOutboxEdit', methods=['GET', 'POST'])
+def adminOutboxEdit():
+
+    error = None
+    if request.method == 'POST':
+
+        outboxId = request.form['id']
+
+        customer_id = request.form['customer_id']
+        staff_id = request.form['staff_id']
+        name = request.form['name']
+        memo = request.form['memo']
+        length = request.form['length']
+        width = request.form['width']
+        height = request.form['height']
+        weight = request.form['weight']
+        status = request.form['status']
+        data = {'name' : name,
+                 'memo' : memo,
+                 'length' : length,
+                 'width' : width,
+                 'height' : height,
+                 'weight' : weight,
+                'customer_id': customer_id,
+                'staff_id': staff_id,
+                'status': status
+                 }
+
+        result = Outbox(app).saveOutboxData(int(outboxId),data)
+        if result:
+            flash('出库箱更新成功')
+            return redirect('/adminOutbox')
+        else:
+            error='出库箱更新失败'
+    else:
+
+        outboxId = request.args.get('id')
+
+    outboxData = Outbox(app).getOutboxData(int(outboxId))
+    customers = Customer(app).getCustomers()
+    staffs = Staff(app).getStaffs()
+
+    return render_template('adminOutboxEdit.html', title=unicode('出库箱追加', 'utf-8'), customers = customers,
+                           staffs = staffs, outbox = outboxData, error= error)
+
+@app.route('/adminOutboxAdd', methods=['GET', 'POST'])
+def adminOutboxAdd():
+
+    error = None
+    if request.method == 'POST':
+
+        customer_id = request.form['customer_id']
+        staff_id = request.form['staff_id']
+        name = request.form['name']
+        memo = request.form['memo']
+        length = request.form['length']
+        width = request.form['width']
+        height = request.form['height']
+        weight = request.form['weight']
+        status = request.form['status']
+        data = {'name' : name,
+                 'memo' : memo,
+                 'length' : length,
+                 'width' : width,
+                 'height' : height,
+                 'weight' : weight,
+                'customer_id': customer_id,
+                'staff_id': staff_id,
+                'status': status
+        }
+
+        result = Outbox(app).addOutbox(data)
+        if result:
+            flash('出库箱更新成功')
+            return redirect('/adminOutbox')
+        else:
+            error='出库箱更新失败'
+
+    customers = Customer(app).getCustomers()
+    staffs = Staff(app).getStaffs()
+
+    return render_template('adminOutboxAdd.html', title=unicode('出库箱追加', 'utf-8'), customers = customers,
+                           staffs = staffs, error= error)
+
+@app.route('/adminOutboxDelete', methods=['GET', 'POST'])
+def adminOutboxDelete():
+
+    error = None
+
+    if request.method == 'POST':
+        id = request.form['id']
+
+        data = {
+            'delete_flag': 1
+        }
+
+        result = Outbox(app).saveOutboxData(int(id), data)
+        if result:
+            flash(unicode('出库箱删除成功', 'utf-8'))
+            return redirect("adminOutbox")
+        else:
+            error = unicode('出库箱删除失败', 'utf-8')
+
+    else:
+
+        id = request.args.get('id')
+
+    return render_template('adminOutboxDelete.html', title = unicode("确定删除", 'utf-8'), id = id, error = error)
+
+@app.route('/adminCustomer', methods=['GET', 'POST'])
+def adminCustomer():
+
+    error = None
+
+
+    customer = Customer(app).getCustomers()
+    if customer == 0:
+        error = "can not found the customer datas!"
+
+    return render_template('adminCustomerList.html', title = unicode("客户管理", 'utf-8'), error = error, viewCustomer = customer)
+
+
+@app.route('/adminCustomerAdd', methods=['GET', 'POST'])
+def adminCustomerAdd():
+
+    error = None
+    if request.method == 'POST':
+
+        name = request.form['name']
+        real_name = request.form['real_name']
+        address = request.form['address']
+        telephone1 = request.form['telephone1']
+        telephone2 = request.form['telephone2']
+        email = request.form['email']
+        id_card_no = request.form['id_card_no']
+        company_name = request.form['company_name']
+        company_address = request.form['company_address']
+        company_telephone = request.form['company_telephone']
+        data = {'name' : name,
+                 'real_name' : real_name,
+                 'address' : address,
+                 'telephone1' : telephone1,
+                 'telephone2' : telephone2,
+                 'email' : email,
+                'id_card_no': id_card_no,
+                'company_name': company_name,
+                'company_address': company_address,
+                'company_telephone': company_telephone
+        }
+
+        result = Customer(app).insertCustomer(data)
+        if result:
+            flash('顾客信息更新成功')
+            return redirect('/adminCustomer')
+        else:
+            error='顾客信息更新失败'
+
+    customers = Customer(app).getCustomers()
+    staffs = Staff(app).getStaffs()
+
+    return render_template('adminCustomerAdd.html', title=unicode('顾客信息追加', 'utf-8'), customers = customers,
+                           staffs = staffs, error= error)
+
+@app.route('/adminCustomerEdit', methods=['GET', 'POST'])
+def adminCustomerEdit():
+
+    error = None
+    if request.method == 'POST':
+
+        customer = request.form['id']
+
+        name = request.form['name']
+        real_name = request.form['real_name']
+        address = request.form['address']
+        telephone1 = request.form['telephone1']
+        telephone2 = request.form['telephone2']
+        email = request.form['email']
+        id_card_no = request.form['id_card_no']
+        company_name = request.form['company_name']
+        company_address = request.form['company_address']
+        company_telephone = request.form['company_telephone']
+        data = {'name' : name,
+                 'real_name' : real_name,
+                 'address' : address,
+                 'telephone1' : telephone1,
+                 'telephone2' : telephone2,
+                 'email' : email,
+                'id_card_no': id_card_no,
+                'company_name': company_name,
+                'company_address': company_address,
+                'company_telephone': company_telephone
+                 }
+
+        result = Customer(app).updateCustomer(data, int(customer))
+        if result:
+            flash('顾客信息更新成功')
+            return redirect('/adminCustomer')
+        else:
+            error='顾客信息更新失败'
+    else:
+
+        customer_id = request.args.get('id')
+
+
+        customer = Customer(app).getCustomer(int(customer_id))
+
+
+    return render_template('adminCustomerEdit.html', title = unicode('顾客信息编辑', 'utf-8'), customer = customer,
+                           error = error)
+
+@app.route('/adminCustomerDelete', methods=['GET', 'POST'])
+def adminCustomerDelete():
+
+    error = None
+
+    if request.method == 'POST':
+        id = request.form['id']
+
+        data = {
+            'delete_flag': 1
+        }
+
+        result = Customer(app).updateCustomer(data, int(id))
+        if result:
+            flash(unicode('顾客信息删除成功', 'utf-8'))
+            return redirect("adminCustomer")
+        else:
+            error = unicode('顾客信息删除失败', 'utf-8')
+
+    else:
+
+        id = request.args.get('id')
+
+    return render_template('adminCustomerDelete.html', title = unicode("确定删除", 'utf-8'), id = id, error = error)
+
+@app.route('/adminStaff', methods=['GET', 'POST'])
+def adminStaff():
+
+    error = None
+
+
+    customer = Staff(app).getStaffs()
+    if customer == 0:
+        error = "can not found the customer datas!"
+
+    return render_template('adminStaffList.html', title = unicode("客户管理", 'utf-8'), error = error, viewStaff = customer)
+
+@app.route('/adminStaffAdd', methods=['GET', 'POST'])
+def adminStaffAdd():
+
+    error = None
+    if request.method == 'POST':
+        user = User()
+
+        staff_cd = request.form['staff_cd']
+        name = request.form['name']
+        telphone = request.form['telphone']
+        email = request.form['email']
+        password = request.form['password']
+
+        data = {'staff_cd': staff_cd,
+                'name' : name,
+                'telphone' : telphone,
+                'email': email,
+                'password': password
+
+        }
+
+        #result = Staff(app).insertStaff(data)
+        result = user.do_register(data)
+        if result:
+            flash('职员信息更新成功')
+            return redirect('/adminStaff')
+        else:
+            error='职员信息更新失败'
+
+    staffs = Staff(app).getStaffs()
+
+    return render_template('adminStaffAdd.html', title=unicode('职员信息追加', 'utf-8'), staffs = staffs, error= error)
+
+@app.route('/adminStaffEdit', methods=['GET', 'POST'])
+def adminStaffEdit():
+
+    error = None
+
+    if request.method == 'POST':
+        user = User()
+
+        id = request.form['id']
+        staff_cd = request.form['staff_cd']
+        name = request.form['name']
+        telphone = request.form['telphone']
+        email = request.form['email']
+        password = request.form['password']
+
+        data = {'staff_cd': staff_cd,
+                'name' : name,
+                'telphone' : telphone,
+                'email': email,
+                'password': password
+
+        }
+
+        result = user.update_staff(data, int(id))
+        if result:
+            flash('职员信息更新成功')
+            return redirect('/adminStaff')
+        else:
+            error='职员信息更新失败'
+
+    else:
+
+        staffId = request.args.get('id')
+
+
+        staff = Staff(app).getStaff(int(staffId))
+
+
+    return render_template('adminStaffEdit.html', title = unicode('职员信息编辑', 'utf-8'), staff = staff,
+                           error = error)
+
+@app.route('/adminStaffDelete', methods=['GET', 'POST'])
+def adminStaffDelete():
+
+    error = None
+
+    if request.method == 'POST':
+        id = request.form['id']
+
+        data = {
+            'delete_flag': 1
+        }
+
+        result = Staff(app).updateStaff(int(id), data)
+        if result:
+            flash(unicode('职员信息删除成功', 'utf-8'))
+            return redirect("adminStaff")
+        else:
+            error = unicode('职员信息删除失败', 'utf-8')
+
+    else:
+
+        id = request.args.get('id')
+
+    return render_template('adminStaffDelete.html', title = unicode("确定删除", 'utf-8'), id = id, error = error)
+
+@app.route("/adminHome")
+def adminHome():
+    if session['auth'] == 1:
+        return render_template("adminHome.html", title="adminHome")
+    else:
+        return render_template("home.html", title="home")
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=8000)

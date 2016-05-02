@@ -9,9 +9,9 @@ class DaoBase(object):
         # MySQL configurations
         mysql = MySQL()
         app.config['MYSQL_DATABASE_USER'] = 'root'
-        app.config['MYSQL_DATABASE_PASSWORD'] = 'q2296498'
+        app.config['MYSQL_DATABASE_PASSWORD'] = '123456'
         app.config['MYSQL_DATABASE_DB'] = 'qh_logistics'
-        app.config['MYSQL_DATABASE_HOST'] = '52.196.88.163'
+        app.config['MYSQL_DATABASE_HOST'] = 'localhost'
         mysql.init_app(app)
         self.conn = mysql.connect()
 

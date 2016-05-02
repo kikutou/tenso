@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+{% block body %}
+
+                {% if error %}
+                <!-- error start //エラー時のみ表示 -->
+				<div class="error-box">
+					<h2>错误</h2>
+					<p>{{error}}</p>
+				</div>
+				<!-- error end -->
+                {% endif %}
+
+                <form action="/adminOutboxEdit" method="post">
+
+                  <input type="hidden" name="id" value="{{outbox['id']}}">
+
+                  <div>
+                      <p>名称</p><input type="text" name="name"
+                                         {%if outbox%} value="{{outbox['name']}}" {%else%} value="" {%endif%}>
+                      <hr>
+                      <p>备注</p><input type="text" name="memo"
+                                        {%if outbox%} value="{{outbox['memo']}}" {%else%} value="" {%endif%}>
+                      <hr>
+                      <p>长（cm）</p><input type="text" name="length"
+                                        {%if outbox%} value="{{outbox['length']}}" {%else%} value="" {%endif%}>
+                      <hr>
+                      <p>宽（cm）</p><input type="text" name="width"
+                                         {%if outbox%} value="{{outbox['width']}}" {%else%} value="" {%endif%}>
+                      <hr>
+                      <p>高（cm）</p><input type="text" name="height"
+                                         {%if outbox%} value="{{outbox['height']}}" {%else%} value="" {%endif%}>
+                      <hr>
+                      <p>重量（g）</p><input type="text" name="weight"
+                                        {%if outbox%} value="{{outbox['weight']}}" {%else%} value="" {%endif%}>
+                      <hr>
+                      <p>状态</p>
+                      <select name="status" style="text-align: center">
+                        <option value=0 {% if outbox.status == 0 %} selected="selected" {% endif %}>未处理</option>
+                        <option value=1 {% if outbox.status == 1 %} selected="selected" {% endif %}>处理中</option>
+                        <option value=2 {% if outbox.status == 2 %} selected="selected" {% endif %}>处理完成</option>
+                        </select>
+                      <hr>
+                      <p>顾客</p>
+                      <select name="customer_id">
+                          {% for key,record in customers.items() %}
+                          <option value="{{record.id}}" {% if record.id == outbox.customer_id %} selected="selected" {% endif %}>{{record.name}}</option>
+                          {% endfor %}
+                      </select>
+                      <hr>
+                      <p>担当者</p>
+                      <select name="staff_id">
+                          {% for key,record in staffs.items() %}
+                          <option value="{{record.id}}" {% if record.id == outbox.staff_id %} selected="selected" {% endif %}>{{record.name}}</option>
+                          {% endfor %}
+                      </select>
+                      <hr>
+
+
+                      <p><input type="submit" name="submit" value="追加"></p>
+                      <p><input type=button value="返回" onclick="location.href='/adminOutbox';" ></p>
+                  </div>
+
+              </form>
+
+
+{% endblock %}

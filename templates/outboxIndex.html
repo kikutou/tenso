@@ -26,7 +26,7 @@
 <h2>出库箱信息</h2>
 
 
-        <p><a class="btn btn-lg btn-success" href="/outboxAdd?customer_id={{customer.id}}" role="button">出库箱追加</a>
+        <p><a class="btn" href="/outboxAdd?customer_id={{customer.id}}" role="button">出库箱追加</a>
         <table class="split total">
                 <tr>
                     <th>名称</th>
@@ -63,7 +63,7 @@
                                 处理错误
                             {%endif%}
                         </td>
-                        <td><button onclick="window.location=('editOutbox?id={{record.id}}')">编辑</button></td>
+                        <td><button onclick="window.location=('outboxEdit?id={{record.id}}')">编辑</button></td>
                     </tr>
                 {%endfor%}
 

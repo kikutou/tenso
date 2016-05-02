@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block body %}
+
+{% if error %}
+<!-- error start //エラー時のみ表示 -->
+<div class="error-box">
+    <h2>错误</h2>
+    <p>{{error}}</p>
+</div>
+<!-- error end -->
+{% endif %}
+
+<form action="/adminStaffEdit" method="post">
+
+    <input type="hidden" name="id" value="{{staff['id']}}">
+
+    <div>
+        <p>职员编号</p><input type="text" name="staff_cd"
+                                        {%if staff%} value="{{staff['staff_cd']}}" {%else%} value="" {%endif%}>
+        <hr>
+        <p>姓名</p><input type="text" name="name"
+                                        {%if staff%} value="{{staff['name']}}" {%else%} value="" {%endif%}>
+        <hr>
+        <p>电话</p><input type="text" name="telphone"
+                                        {%if staff%} value="{{staff['telphone']}}" {%else%} value="" {%endif%}>
+        <hr>
+        <p>电子邮件</p><input type="text" name="email"
+                                        {%if staff%} value="{{staff['email']}}" {%else%} value="" {%endif%}>
+        <hr>
+        <p>密码</p><input type="text" name="password" value="">
+        <hr>
+
+
+
+        <p><input type="submit" name="submit" value="编辑"></p>
+        <p><input type=button value="返回" onclick="location.href='/adminStaff';" ></p>
+    </div>
+
+</form>
+
+{% endblock %}

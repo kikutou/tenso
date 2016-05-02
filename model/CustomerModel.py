@@ -17,10 +17,11 @@ class Customer(object):
         customerRecords = DaoBase().fetchAll('mst_customer')
         return customerRecords
 
-    def insertCustomer(self,data):
-        result = DaoBase().insertRecord('mst_customer',data)
+    def insertCustomer(self, data):
+        result = DaoBase().insertRecord('mst_customer', data)
         return result
 
     def updateCustomer(self, data, id):
-        result = DaoBase().updateRecord('mst_customer',data,id)
+        result = DaoBase().updateRecord('mst_customer', data, id)
         return result
+

@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+{% block body %}
+
+{% if error %}
+<!-- error start //エラー時のみ表示 -->
+<div class="error-box">
+    <h2>错误</h2>
+    <p>{{error}}</p>
+</div>
+<!-- error end -->
+{% endif %}
+
+<form action="/adminCustomerEdit" method="post">
+
+    <input type="hidden" name="id" value="{{customer['id']}}">
+
+    <div>
+        <p>名称</p><input type="text" name="name"
+                        {%if customer%} value="{{customer['name']}}" {%else%} value="" {%endif%}>
+        <hr>
+        <p>真实姓名</p><input type="text" name="real_name"
+                          {%if customer%} value="{{customer['real_name']}}" {%else%} value="" {%endif%}>
+        <hr>
+        <p>地址</p><input type="text" name="address"
+                        {%if customer%} value="{{customer['address']}}" {%else%} value="" {%endif%}>
+        <hr>
+        <p>电话1</p><input type="text" name="telephone1"
+                         {%if customer%} value="{{customer['telephone1']}}" {%else%} value="" {%endif%}>
+        <hr>
+        <p>电话2</p><input type="text" name="telephone2"
+                         {%if customer%} value="{{customer['telephone2']}}" {%else%} value="" {%endif%}>
+        <hr>
+        <p>电子邮件</p><input type="text" name="email"
+                          {%if customer%} value="{{customer['email']}}" {%else%} value="" {%endif%}>
+        <hr>
+        <p>身份证号</p><input type="text" name="id_card_no"
+                          {%if customer%} value="{{customer['id_card_no']}}" {%else%} value="" {%endif%}>
+        <hr>
+        <p>公司名</p><input type="text" name="company_name"
+                         {%if customer%} value="{{customer['company_name']}}" {%else%} value="" {%endif%}>
+        <hr>
+        <p>公司地址</p><input type="text" name="company_address"
+                          {%if customer%} value="{{customer['company_address']}}" {%else%} value="" {%endif%}>
+        <hr>
+        <p>公司电话</p><input type="text" name="company_telephone"
+                          {%if customer%} value="{{customer['company_telephone']}}" {%else%} value="" {%endif%}>
+        <hr>
+
+
+        <p><input type="submit" name="submit" value="追加"></p>
+        <p><input type=button value="返回" onclick="location.href='/adminCustomer';" ></p>
+    </div>
+
+</form>
+
+
+{% endblock %}

@@ -15,6 +15,7 @@ class User(object):
                 self.staff_name = staff_data['name']
                 self.email = staff_data['email']
                 self.pw_hash = staff_data['password']
+                self.authority = staff_data['authority']
 
 
     def do_register(self, newStaffData):
@@ -27,3 +28,17 @@ class User(object):
     def check_password(self, password):
         return check_password_hash(self.pw_hash, password)
 
+    def update_staff(self, editData, id):
+
+        data = {'staff_cd': editData['staff_cd'],
+                'name' : editData['name'],
+                'telphone' : editData['telphone'],
+                'email': editData['email'],
+            }
+
+        if editData['password'] != "":
+            pw_hash = generate_password_hash(editData['password'])
+            data['password'] = pw_hash
+
+        result = DaoBase().updateRecord('mst_staff', data, id)
+        return result
