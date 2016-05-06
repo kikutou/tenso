@@ -11,9 +11,9 @@
                 {% endif %}
 
               {%if data%}
-                <form action="/customerEdit" method="post">
+                <form action="/customerEdit" method="post" enctype="multipart/form-data">
                 {%else%}
-                <form action="/customerAdd" method="post">
+                <form action="/customerAdd" method="post" enctype="multipart/form-data">
                     {%endif%}
 
                   {%if data%}
@@ -55,17 +55,21 @@
                       <p>身份证号码</p><input type="text" name="id_card_no"
                                          {%if data%} value="{{data['id_card_no']}}" {%else%} value="" {%endif%}>
                       <hr>
-                      <p>身份证照片（正面）</p><input type="file" name="id_card_pic_front"
-                                             {%if data%} value="{{data['id_card_pic_front']}}" {%else%} value="" {%endif%}>
-                      <p><img src="" name="" value=""></p>
+                      <p>身份证照片（正面）</p><center><input type="file" name="id_card_pic_front"
+                                             {%if data%} value="{{data['id_card_pic_front']}}" {%else%} value="" {%endif%}></center>
+                      {%if data%}{%if data['id_card_pic_front']%}<p><img  src="{{data['id_card_pic_front']}}"></p>{%endif%}{%endif%}
                       <hr>
-                      <p>身份证照片（反面）</p><input type="file" name="id_card_pic_back"
-                                             {%if data%} value="{{data['id_card_pic_back']}}" {%else%} value="" {%endif%}>
+                      <p>身份证照片（反面）</p><center><input type="file" name="id_card_pic_back"
+                                             {%if data%} value="{{data['id_card_pic_back']}}" {%else%} value="" {%endif%}></center>
 
-                      <p><img src="" name="" value=""></p>
+                      {%if data%}{%if data['id_card_pic_back']%} <p><img src="{{data['id_card_pic_back']}}"></p>{%endif%}{%endif%}
                       <hr>
+                      {%if data%}
+                          <p><input type="submit" name="submit" value="编辑"></p>
+                      {%else%}
+                          <p><input type="submit" name="submit" value="登录"></p>
+                      {%endif%}
 
-                      <p><input type="submit" name="submit" value="登录"></p>
                       <p><input type=button value="返回" onclick="location.href='/customer';" ></p>
                   </div>
 

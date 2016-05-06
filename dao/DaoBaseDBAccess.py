@@ -197,16 +197,17 @@ class DaoBase(object):
                 elif key == 'status':
                     newWhere += 'status = ' + value + ' AND '
                 elif key == 'name':
-                    newWhere += 'name LIKE ' + '%' + value + '%' + ' AND '
+                    newWhere += 'name LIKE ' + '\'%' + value + '%\'' + ' AND '
+                elif key == 'update_from':
+                    newWhere += 'update_at >= \'' + value + '\' AND '
+                elif key == 'update_to':
+                    newWhere += 'update_at <= \'' + value + '\' AND '
                 else:
                     newWhere += key + ' = ' + value + ' AND '
 
 
             selectString = selectString + " WHERE DELETE_FLAG = 0 AND " + newWhere[:-4] + ";"
-
         print selectString
-
-
         cursor = self.conn.cursor()
         cursor.execute(selectString)
         return cursor

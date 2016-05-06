@@ -41,7 +41,11 @@
     {%endfor%}
 </table>
 
+{% if source and source == 'admin' %}
+<input type="button" value="返回" onclick="window.location=('adminOutbox')">
+{% else %}
 <input type="button" value="返回" onclick="window.location=('itemAddSuccess')">
+{% endif %}
 
 
 

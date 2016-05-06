@@ -2,32 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="185cf57d-73d7-4650-9937-7bc77d78282a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/model/StaffModel.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/adminInboxEdit.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/static/bootstrap.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/static/js/table.css" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.py" afterPath="$PROJECT_DIR$/app.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dao/DaoBaseDBAccess.py" afterPath="$PROJECT_DIR$/dao/DaoBaseDBAccess.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/CustomerModel.py" afterPath="$PROJECT_DIR$/model/CustomerModel.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/OutboxModel.py" afterPath="$PROJECT_DIR$/model/OutboxModel.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/UserAuthModel.py" afterPath="$PROJECT_DIR$/model/UserAuthModel.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/bootstrap.css" afterPath="$PROJECT_DIR$/static/bootstrap.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/default.css" afterPath="$PROJECT_DIR$/static/default.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/jquery-2.2.3.min.js" afterPath="$PROJECT_DIR$/static/js/jquery-2.2.3.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/jumbotron-narrow.css" afterPath="$PROJECT_DIR$/static/jumbotron-narrow.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/signup.css" afterPath="$PROJECT_DIR$/static/signup.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/ItemModel.py" afterPath="$PROJECT_DIR$/model/ItemModel.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/adminHome.html" afterPath="$PROJECT_DIR$/templates/adminHome.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/adminInboxAdd.html" afterPath="$PROJECT_DIR$/templates/adminInboxAdd.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/adminInboxEdit.html" afterPath="$PROJECT_DIR$/templates/adminInboxEdit.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/adminInboxList.html" afterPath="$PROJECT_DIR$/templates/adminInboxList.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/customer.html" afterPath="$PROJECT_DIR$/templates/customer.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/adminOutboxAdd.html" afterPath="$PROJECT_DIR$/templates/adminOutboxAdd.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/adminOutboxEdit.html" afterPath="$PROJECT_DIR$/templates/adminOutboxEdit.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/adminOutboxList.html" afterPath="$PROJECT_DIR$/templates/adminOutboxList.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/customerAdd.html" afterPath="$PROJECT_DIR$/templates/customerAdd.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/customerEdit.html" afterPath="$PROJECT_DIR$/templates/customerEdit.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/home.html" afterPath="$PROJECT_DIR$/templates/home.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/inboxCustomerSelect.html" afterPath="$PROJECT_DIR$/templates/inboxCustomerSelect.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/inboxIndex.html" afterPath="$PROJECT_DIR$/templates/inboxIndex.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/inboxAdd.html" afterPath="$PROJECT_DIR$/templates/inboxAdd.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/index.html" afterPath="$PROJECT_DIR$/templates/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/itemAdd.html" afterPath="$PROJECT_DIR$/templates/itemAdd.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/login.html" afterPath="$PROJECT_DIR$/templates/login.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/outboxAdd.html" afterPath="$PROJECT_DIR$/templates/outboxAdd.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/outboxEdit.html" afterPath="$PROJECT_DIR$/templates/outboxEdit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/outboxInboxSelect.html" afterPath="$PROJECT_DIR$/templates/outboxInboxSelect.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/outboxIndex.html" afterPath="$PROJECT_DIR$/templates/outboxIndex.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/outboxInfo.html" afterPath="$PROJECT_DIR$/templates/outboxInfo.html" />
     </list>
     <ignored path="myproject.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -49,11 +43,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="app.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="app.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.8">
-              <caret line="362" column="20" selection-start-line="362" selection-start-column="20" selection-end-line="362" selection-end-column="20" />
+            <state vertical-scroll-proportion="-1.4972796">
+              <caret line="948" column="45" selection-start-line="948" selection-start-column="45" selection-end-line="948" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/login.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-10.0">
+              <caret line="31" column="12" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -62,68 +66,93 @@
       <file leaf-file-name="InboxModel.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/model/InboxModel.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="42" column="21" selection-start-line="42" selection-start-column="21" selection-end-line="42" selection-end-column="21" />
+            <state vertical-scroll-proportion="-5.571429">
+              <caret line="13" column="21" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="21" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OutboxModel.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model/OutboxModel.py">
+      <file leaf-file-name="outboxInfo.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/outboxInfo.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-5.8474574">
+              <caret line="23" column="28" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ItemModel.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/model/ItemModel.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="41" column="9" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
+              <caret line="33" column="62" selection-start-line="33" selection-start-column="50" selection-end-line="33" selection-end-column="62" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="customerAdd.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/customerAdd.html">
+      <file leaf-file-name="home.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.708333">
-              <caret line="49" column="22" selection-start-line="49" selection-start-column="22" selection-end-line="49" selection-end-column="22" />
+            <state vertical-scroll-proportion="-3.75">
+              <caret line="6" column="40" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
+              <folding>
+                <element signature="n#style#0;n#a#0;n#p#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#p#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#p#2;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#p#3;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#p#4;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DaoBaseDBAccess.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dao/DaoBaseDBAccess.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="85" column="45" selection-start-line="85" selection-start-column="40" selection-end-line="85" selection-end-column="45" />
+              <folding>
+                <element signature="e#24#56#0" expanded="true" />
+                <marker date="1462192191163" expanded="true" signature="1253:1326" placeholder="INSERT INTO `qh_logistics`.`missing_value`... " />
+                <marker date="1462192191163" expanded="true" signature="3917:3975" placeholder="SELECT * FRO... missing_value" />
+                <marker date="1462192191163" expanded="true" signature="4066:4134" placeholder="SELECT * FRO... missing_value" />
+                <marker date="1462192191163" expanded="true" signature="4578:4641" placeholder="SELECT * FRO... missing_value" />
+                <marker date="1462192191163" expanded="true" signature="5206:5220" placeholder="SELECT * FRO... missing_value" />
+                <marker date="1462192191163" expanded="true" signature="5306:5332" placeholder="SELECT * FRO... missing_value" />
+                <marker date="1462192191163" expanded="true" signature="6214:6241" placeholder="SELECT * FRO... missing_value" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="itemAdd.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/itemAdd.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-23.125">
+              <caret line="37" column="48" selection-start-line="37" selection-start-column="48" selection-end-line="37" selection-end-column="48" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="outboxIndex.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/outboxIndex.html">
+      <file leaf-file-name="uncodeItemAdd.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/uncodeItemAdd.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-23.333334">
-              <caret line="63" column="23" selection-start-line="63" selection-start-column="23" selection-end-line="63" selection-end-column="23" />
+            <state vertical-scroll-proportion="-2.542373">
+              <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="outboxEdit.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/outboxEdit.html">
+      <file leaf-file-name="itemAddSuccess.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/itemAddSuccess.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3116883">
-              <caret line="16" column="14" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="inboxIndex.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/inboxIndex.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-25.583334">
-              <caret line="43" column="12" selection-start-line="43" selection-start-column="12" selection-end-line="43" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="adminStaffEdit.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/adminStaffEdit.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.75">
-              <caret line="22" column="12" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="12" />
+            <state vertical-scroll-proportion="-30.0">
+              <caret line="57" column="82" selection-start-line="57" selection-start-column="82" selection-end-line="57" selection-end-column="82" />
               <folding />
             </state>
           </provider>
@@ -145,31 +174,19 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/templates/inboxEdit.html" />
-        <option value="$PROJECT_DIR$/templates/inboxAdd.html" />
-        <option value="$PROJECT_DIR$/static/default.css" />
-        <option value="$PROJECT_DIR$/templates/inboxDelete.html" />
         <option value="$PROJECT_DIR$/templates/outboxCustomerSelect.html" />
         <option value="$PROJECT_DIR$/templates/outboxInboxSelectConfirm.html" />
-        <option value="$PROJECT_DIR$/templates/outboxAdd.html" />
-        <option value="$PROJECT_DIR$/model/ItemModel.py" />
         <option value="$PROJECT_DIR$/model/MadeInInfo.py" />
         <option value="$PROJECT_DIR$/model/RelInItemModel.py" />
         <option value="$PROJECT_DIR$/model/RelOutItemModel.py" />
-        <option value="$PROJECT_DIR$/templates/itemAdd.html" />
         <option value="$PROJECT_DIR$/templates/itemAddSuccess.html" />
         <option value="$PROJECT_DIR$/templates/outboxDetail.html" />
         <option value="$PROJECT_DIR$/templates/removeItem.html" />
         <option value="$PROJECT_DIR$/templates/inboxlist.html" />
-        <option value="$PROJECT_DIR$/model/InboxModel.py" />
         <option value="$PROJECT_DIR$/model/StaffModel.py" />
-        <option value="$PROJECT_DIR$/dao/DaoBaseDBAccess.py" />
-        <option value="$PROJECT_DIR$/templates/adminInboxEdit.html" />
         <option value="$PROJECT_DIR$/model/OutboxModel.py" />
         <option value="$PROJECT_DIR$/templates/adminOutboxList .html" />
-        <option value="$PROJECT_DIR$/templates/adminOutboxAdd.html" />
         <option value="$PROJECT_DIR$/templates/adminOutboxDelete.html" />
-        <option value="$PROJECT_DIR$/templates/adminOutboxEdit.html" />
         <option value="$PROJECT_DIR$/model/CustomerModel.py" />
         <option value="$PROJECT_DIR$/templates/outboxInboxSelect.html" />
         <option value="$PROJECT_DIR$/templates/adminStaffDelete.html" />
@@ -177,25 +194,37 @@
         <option value="$PROJECT_DIR$/templates/adminStaffList.html" />
         <option value="$PROJECT_DIR$/templates/adminCustomerDelete.html" />
         <option value="$PROJECT_DIR$/templates/adminStaffAdd.html" />
-        <option value="$PROJECT_DIR$/templates/adminInboxAdd.html" />
         <option value="$PROJECT_DIR$/templates/adminCustomerEdit.html" />
         <option value="$PROJECT_DIR$/templates/adminInboxDelete.html" />
         <option value="$PROJECT_DIR$/templates/adminCustomerAdd.html" />
         <option value="$PROJECT_DIR$/templates/adminCustomerList.html" />
         <option value="$PROJECT_DIR$/templates/customerEdit.html" />
-        <option value="$PROJECT_DIR$/templates/customerAdd.html" />
-        <option value="$PROJECT_DIR$/templates/adminInboxList.html" />
-        <option value="$PROJECT_DIR$/templates/adminOutboxList.html" />
         <option value="$PROJECT_DIR$/model/UserAuthModel.py" />
-        <option value="$PROJECT_DIR$/templates/adminHome.html" />
-        <option value="$PROJECT_DIR$/templates/home.html" />
         <option value="$PROJECT_DIR$/templates/customer.html" />
         <option value="$PROJECT_DIR$/templates/inboxCustomerSelect.html" />
         <option value="$PROJECT_DIR$/templates/inboxIndex.html" />
-        <option value="$PROJECT_DIR$/templates/index.html" />
         <option value="$PROJECT_DIR$/templates/outboxIndex.html" />
-        <option value="$PROJECT_DIR$/app.py" />
+        <option value="$PROJECT_DIR$/model/InboxModel.py" />
+        <option value="$PROJECT_DIR$/dao/DaoBaseDBAccess.py" />
+        <option value="$PROJECT_DIR$/templates/customerAdd.html" />
+        <option value="$PROJECT_DIR$/templates/adminInboxAdd.html" />
+        <option value="$PROJECT_DIR$/templates/adminInboxEdit.html" />
+        <option value="$PROJECT_DIR$/templates/adminInboxList.html" />
+        <option value="$PROJECT_DIR$/templates/adminOutboxAdd.html" />
+        <option value="$PROJECT_DIR$/templates/adminOutboxEdit.html" />
+        <option value="$PROJECT_DIR$/templates/inboxAdd.html" />
+        <option value="$PROJECT_DIR$/templates/outboxAdd.html" />
         <option value="$PROJECT_DIR$/templates/outboxEdit.html" />
+        <option value="$PROJECT_DIR$/templates/outboxInfo.html" />
+        <option value="$PROJECT_DIR$/templates/adminOutboxList.html" />
+        <option value="$PROJECT_DIR$/templates/adminHome.html" />
+        <option value="$PROJECT_DIR$/templates/uncodeItemAdd.html" />
+        <option value="$PROJECT_DIR$/templates/home.html" />
+        <option value="$PROJECT_DIR$/model/ItemModel.py" />
+        <option value="$PROJECT_DIR$/templates/itemAdd.html" />
+        <option value="$PROJECT_DIR$/templates/index.html" />
+        <option value="$PROJECT_DIR$/app.py" />
+        <option value="$PROJECT_DIR$/templates/login.html" />
       </list>
     </option>
   </component>
@@ -205,10 +234,10 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1426" />
-    <option name="y" value="155" />
-    <option name="width" value="1757" />
-    <option name="height" value="896" />
+    <option name="x" value="1345" />
+    <option name="y" value="24" />
+    <option name="width" value="1855" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -488,10 +517,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1426" y="155" width="1757" height="896" extended-state="0" />
-    <editor active="true" />
+    <frame x="1345" y="24" width="1855" height="1056" extended-state="6" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17814456" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16873315" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32858595" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -529,31 +558,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/static/js/jquery-2.2.3.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.066815145">
-          <caret line="1" column="476" selection-start-line="1" selection-start-column="476" selection-end-line="1" selection-end-column="476" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/ItemModel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27537796">
-          <caret line="17" column="15" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.PyCharm50/system/python_stubs/-1247972723/datetime.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33261338">
           <caret line="60" column="8" selection-start-line="60" selection-start-column="8" selection-end-line="60" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/adminInboxEdit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.73798627">
-          <caret line="43" column="42" selection-start-line="43" selection-start-column="42" selection-end-line="43" selection-end-column="42" />
         </state>
       </provider>
     </entry>
@@ -582,14 +590,130 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="17" column="30" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/adminStaffAdd.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.338983">
+          <caret line="21" column="60" selection-start-line="21" selection-start-column="60" selection-end-line="21" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/customer.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.101695">
+          <caret line="24" column="37" selection-start-line="24" selection-start-column="34" selection-end-line="24" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/customerDelete.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.0338984">
+          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/customerEdit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.3728814">
+          <caret line="29" column="58" selection-start-line="29" selection-start-column="58" selection-end-line="29" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/logout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.5084743">
+          <caret line="37" column="39" selection-start-line="37" selection-start-column="36" selection-end-line="37" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/outboxCustomerSelect.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.8305087">
+          <caret line="19" column="14" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/outboxInboxSelect.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.406779">
+          <caret line="37" column="42" selection-start-line="37" selection-start-column="39" selection-end-line="37" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/outboxInboxSelectConfirm.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.8305087">
+          <caret line="19" column="14" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/removeItem.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.20339">
+          <caret line="53" column="8" selection-start-line="53" selection-start-column="8" selection-end-line="53" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/signin.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5865922">
+          <caret line="35" column="39" selection-start-line="35" selection-start-column="36" selection-end-line="35" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/adminStaffEdit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.40048543">
+          <caret line="22" column="12" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/OutboxModel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="43" column="29" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/outboxIndex.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="63" column="23" selection-start-line="63" selection-start-column="23" selection-end-line="63" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/inboxIndex.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="43" column="12" selection-start-line="43" selection-start-column="12" selection-end-line="43" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/customerAdd.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="57" column="86" selection-start-line="57" selection-start-column="86" selection-end-line="57" selection-end-column="86" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/adminStaffList.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="43" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/adminCustomerAdd.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-26.25">
-          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+        <state vertical-scroll-proportion="-6.25">
+          <caret line="10" column="11" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
           <folding />
         </state>
       </provider>
@@ -604,7 +728,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/adminCustomerEdit.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.125">
+        <state vertical-scroll-proportion="-5.4583335">
           <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding />
         </state>
@@ -618,24 +742,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/adminHome.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.375">
-          <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
-          <folding>
-            <element signature="n#style#0;n#a#0;n#p#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#p#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#p#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#p#3;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#p#4;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/adminInboxAdd.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-34.125">
-          <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+        <state vertical-scroll-proportion="-11.083333">
+          <caret line="24" column="16" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
           <folding />
         </state>
       </provider>
@@ -648,18 +758,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/adminInboxEdit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-19.791666">
+          <caret line="32" column="29" selection-start-line="32" selection-start-column="29" selection-end-line="32" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/adminInboxList.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.0">
-          <caret line="32" column="38" selection-start-line="32" selection-start-column="38" selection-end-line="32" selection-end-column="38" />
+        <state vertical-scroll-proportion="-10.458333">
+          <caret line="47" column="20" selection-start-line="47" selection-start-column="20" selection-end-line="47" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/adminOutboxAdd.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.25">
-          <caret line="26" column="34" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="34" />
+        <state vertical-scroll-proportion="-10.458333">
+          <caret line="29" column="29" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="29" />
           <folding />
         </state>
       </provider>
@@ -674,79 +792,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/adminOutboxEdit.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.0508475">
-          <caret line="24" column="49" selection-start-line="24" selection-start-column="48" selection-end-line="24" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/adminOutboxList.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.3050847">
-          <caret line="39" column="4" selection-start-line="39" selection-start-column="4" selection-end-line="39" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/adminStaffAdd.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.338983">
-          <caret line="21" column="60" selection-start-line="21" selection-start-column="60" selection-end-line="21" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/adminStaffList.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.322034">
-          <caret line="17" column="43" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/customer.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.101695">
-          <caret line="24" column="37" selection-start-line="24" selection-start-column="34" selection-end-line="24" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/customerDelete.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.0338984">
-          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/customerEdit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.3728814">
-          <caret line="29" column="58" selection-start-line="29" selection-start-column="58" selection-end-line="29" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.7627119">
-          <caret line="3" column="16" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="16" />
+        <state vertical-scroll-proportion="-11.708333">
+          <caret line="32" column="29" selection-start-line="32" selection-start-column="29" selection-end-line="32" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/inboxAdd.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.59322">
-          <caret line="22" column="27" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
+        <state vertical-scroll-proportion="0.7125891">
+          <caret line="40" column="29" selection-start-line="40" selection-start-column="29" selection-end-line="40" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/inboxCustomerSelect.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.5254238">
+        <state vertical-scroll-proportion="-3.75">
           <caret line="6" column="26" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
           <folding />
         </state>
@@ -754,192 +816,151 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/inboxDelete.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.8135593">
+        <state vertical-scroll-proportion="0.2672209">
           <caret line="15" column="68" selection-start-line="15" selection-start-column="68" selection-end-line="15" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.5254235">
-          <caret line="33" column="28" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/itemAdd.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.084746">
-          <caret line="22" column="28" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/itemAddSuccess.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.084746">
-          <caret line="29" column="65" selection-start-line="29" selection-start-column="65" selection-end-line="29" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/layout.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.118644">
-          <caret line="28" column="9" selection-start-line="28" selection-start-column="9" selection-end-line="28" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.762712">
-          <caret line="40" column="50" selection-start-line="40" selection-start-column="47" selection-end-line="40" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/logout.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.5084743">
-          <caret line="37" column="39" selection-start-line="37" selection-start-column="36" selection-end-line="37" selection-end-column="39" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/outboxAdd.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.8644066">
-          <caret line="27" column="26" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/outboxCustomerSelect.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.8305087">
-          <caret line="19" column="14" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/outboxInboxSelect.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.406779">
-          <caret line="37" column="42" selection-start-line="37" selection-start-column="39" selection-end-line="37" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/outboxInboxSelectConfirm.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.8305087">
-          <caret line="19" column="14" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/outboxInfo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.8644066">
-          <caret line="27" column="23" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/removeItem.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.20339">
-          <caret line="53" column="8" selection-start-line="53" selection-start-column="8" selection-end-line="53" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/signin.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5865922">
-          <caret line="35" column="39" selection-start-line="35" selection-start-column="36" selection-end-line="35" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dao/DaoBaseDBAccess.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.5943396">
-          <caret line="166" column="18" selection-start-line="166" selection-start-column="18" selection-end-line="166" selection-end-column="18" />
-          <folding>
-            <marker date="1461641602366" expanded="true" signature="1253:1326" placeholder="INSERT INTO `qh_logistics`.`missing_value`... " />
-            <marker date="1461641602366" expanded="true" signature="3917:3975" placeholder="SELECT * FRO... missing_value" />
-            <marker date="1461641602366" expanded="true" signature="4066:4134" placeholder="SELECT * FRO... missing_value" />
-            <marker date="1461641602366" expanded="true" signature="4578:4641" placeholder="SELECT * FRO... missing_value" />
-            <marker date="1461641602366" expanded="true" signature="5206:5220" placeholder="SELECT * FRO... missing_value" />
-            <marker date="1461641602366" expanded="true" signature="5306:5332" placeholder="SELECT * FRO... missing_value" />
-            <marker date="1461641602366" expanded="true" signature="5986:6013" placeholder="SELECT * FRO... missing_value" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/customerAdd.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.708333">
-          <caret line="49" column="22" selection-start-line="49" selection-start-column="22" selection-end-line="49" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/OutboxModel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="41" column="9" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.8">
-          <caret line="362" column="20" selection-start-line="362" selection-start-column="20" selection-end-line="362" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/inboxIndex.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-25.583334">
-          <caret line="43" column="12" selection-start-line="43" selection-start-column="12" selection-end-line="43" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/adminStaffEdit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.75">
-          <caret line="22" column="12" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/InboxModel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="42" column="21" selection-start-line="42" selection-start-column="21" selection-end-line="42" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/outboxIndex.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-23.333334">
-          <caret line="63" column="23" selection-start-line="63" selection-start-column="23" selection-end-line="63" selection-end-column="23" />
+        <state vertical-scroll-proportion="-22.583334">
+          <caret line="40" column="29" selection-start-line="40" selection-start-column="29" selection-end-line="40" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/outboxEdit.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3116883">
-          <caret line="16" column="14" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
+        <state vertical-scroll-proportion="-6.875">
+          <caret line="11" column="16" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/layout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-28.75">
+          <caret line="46" column="27" selection-start-line="46" selection-start-column="27" selection-end-line="46" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/adminOutboxList.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-33.125">
+          <caret line="53" column="44" selection-start-line="53" selection-start-column="44" selection-end-line="53" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/adminHome.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.375">
+          <caret line="7" column="62" selection-start-line="7" selection-start-column="56" selection-end-line="7" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dao/DaoBaseDBAccess.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="85" column="45" selection-start-line="85" selection-start-column="40" selection-end-line="85" selection-end-column="45" />
+          <folding>
+            <element signature="e#24#56#0" expanded="true" />
+            <marker date="1462192191163" expanded="true" signature="1253:1326" placeholder="INSERT INTO `qh_logistics`.`missing_value`... " />
+            <marker date="1462192191163" expanded="true" signature="3917:3975" placeholder="SELECT * FRO... missing_value" />
+            <marker date="1462192191163" expanded="true" signature="4066:4134" placeholder="SELECT * FRO... missing_value" />
+            <marker date="1462192191163" expanded="true" signature="4578:4641" placeholder="SELECT * FRO... missing_value" />
+            <marker date="1462192191163" expanded="true" signature="5206:5220" placeholder="SELECT * FRO... missing_value" />
+            <marker date="1462192191163" expanded="true" signature="5306:5332" placeholder="SELECT * FRO... missing_value" />
+            <marker date="1462192191163" expanded="true" signature="6214:6241" placeholder="SELECT * FRO... missing_value" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/uncodeItemAdd.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.542373">
+          <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/itemAddSuccess.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-30.0">
+          <caret line="57" column="82" selection-start-line="57" selection-start-column="82" selection-end-line="57" selection-end-column="82" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/ItemModel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="33" column="62" selection-start-line="33" selection-start-column="50" selection-end-line="33" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/itemAdd.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-23.125">
+          <caret line="37" column="48" selection-start-line="37" selection-start-column="48" selection-end-line="37" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.06451613">
+          <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.75">
+          <caret line="6" column="40" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#p#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#p#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#p#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#p#3;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#p#4;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/InboxModel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.571429">
+          <caret line="13" column="21" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/outboxInfo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.8474574">
+          <caret line="23" column="28" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.0">
+          <caret line="31" column="12" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.4972796">
+          <caret line="948" column="45" selection-start-line="948" selection-start-column="45" selection-end-line="948" selection-end-column="45" />
           <folding />
         </state>
       </provider>

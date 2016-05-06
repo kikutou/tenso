@@ -38,11 +38,14 @@
                       <p>高（cm）</p><input type="text" name="height"
                                          {%if outbox%} value="{{outbox['height']}}" {%else%} value="" {%endif%}>
                       <hr>
-                      <p>重量（g）</p><input type="text" name="weight"
+                      <p>重量（kg）</p><input type="text" name="weight"
                                         {%if outbox%} value="{{outbox['weight']}}" {%else%} value="" {%endif%}>
                       <hr>
-
-                      <p><input type="submit" name="submit" value="追加"></p>
+                    {%if outbox%}
+                        <p><input type="submit" name="submit" value="编辑"></p>
+                    {%else%}
+                        <p><input type="submit" name="submit" value="追加"></p>
+                    {%endif%}
                       <p><input type=button value="返回" onclick="location.href='/outboxIndex?customer_id={{customerId}}';" ></p>
                   </div>
 

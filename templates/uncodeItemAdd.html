@@ -11,20 +11,15 @@
                 {% endif %}
 
 
-                <form action="/itemAdd" method="post" enctype="multipart/form-data">
+                <form action="/itemAdd" method="post">
 
 
                     <div>
-                        {%if item.jan_code%}
-                            <p>商品码</p><input type="text" name="jan_code"  value="{{item.jan_code}}">
-                            <hr>
-                        {&else&}
-                            <input type="hidden" name="jan_code" value="">
-                        {%endif%}
-
-                        <p>商品名（日文）</p><input type="text" name="jp_name" {%if item.jp_name%} value="{{item.jp_name}}"{%else%} value="" {%endif%}>
+                        <p>商品码</p><input type="text" name="jan_code" value="" {%endif%}>
                         <hr>
-                        <p>商品名（英文）</p><input type="text" name="en_name" {%if item.en_name%} value="{{item.en_name}}"{%else%} value="" {%endif%}>
+                        <p>商品名（日文）</p><input type="text" name="jp_name"  value="" {%endif%}>
+                        <hr>
+                        <p>商品名（英文）</p><input type="text" name="en_name" value="" {%endif%}>
                         <hr>
                         <p>商品名（中文）</p><input type="text" name="cn_name" {%if item.cn_name%} value="{{item.cn_name}}"{%else%} value="" {%endif%}>
                         <hr>
@@ -34,19 +29,14 @@
                         <hr>
                         <p>备注</p><input type="text" name="memo" {%if item.memo%} value="{{item.memo}}"{%else%} value="" {%endif%}>
                         <hr>
-                        <p>图片</p>
-                        {%if item.item_image_pic%}
-                            <p><img src="{{item.item_image_pic}}"></p>
-                        {%endif%}
-                        <center><p><input type="file" name="item_image_pic"></p></center>
-                        <hr>
                         <p>产地</p><select name="country_of_origin">
                             {%for key,madeInInfo in madeInInfos.items()%}
                                 <option value={{madeInInfo.id}}>{{madeInInfo.made_in_country}}</option>
                             {%endfor%}
                             </select>
                         <hr>
-
+                        <br>
+                        <br>
                         <p>来自</p><select name="inbox">
                             {%for key,inbox in inboxes.items()%}
                                 <option value={{inbox.id}}>{{inbox.name}}</option>
@@ -61,7 +51,6 @@
                         <hr>
 
                         <p><input type="submit" name="submit" value="追加"></p>
-
                     </div>
 
               </form>

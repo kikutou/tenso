@@ -1,12 +1,13 @@
 {% extends "layout.html" %}
 {% block body %}
 <h2> 主页 </h2>
-<p><a class="btn" href="customer" role="button">&nbsp;顾客一览&nbsp;&nbsp;</a></p>
-<p><a class="btn" href="inboxCustomerSelect" role="button">入库箱信息</a></p>
-<p><a class="btn" href="outboxCustomerSelect" role="button">出库箱信息</a></p>
+<p><a class="btn" href="customer" role="button" style="width: 200px">&nbsp;顾客一览&nbsp;&nbsp;</a></p>
+<p><a class="btn" href="inboxCustomerSelect" role="button" style="width: 200px">入库箱信息</a></p>
+<p><a class="btn" href="outboxCustomerSelect" role="button" style="width: 200px">出库箱信息</a></p>
+<p><a class="btn" href="itemAdd?jancode=" role="button" style="width: 200px">手动添加商品</a></p>
 {%if session['auth'] == 1:%}
 <hr>
-<p><a class="btn" href="adminHome" role="button">管理员入口</a></p>
+<p><a class="btn" href="adminHome" role="button" style="width: 200px">管理员入口</a></p>
 {%endif%}
 
 

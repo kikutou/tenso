@@ -4,6 +4,7 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__))+'/model')
 
 from flask import Flask, flash, render_template, request, json, redirect, session, url_for
 from flaskext.mysql import MySQL
+from werkzeug import secure_filename
 import datetime
 import urllib
 from bs4 import BeautifulSoup
@@ -25,8 +26,14 @@ from RelInItemModel import RelInItem
 from RelOutItemModel import RelOutItem
 from StaffModel import Staff
 
+
+UPLOAD_FOLDER = os.path.dirname(os.path.abspath(__file__))+'/static/img'
+ITEM_UPLOAD_FOLDER = os.path.dirname(os.path.abspath(__file__))+'/static/item_img'
+ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 app = Flask(__name__)
 app.config['DEBUG'] = True
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.config['ITEM_UPLOAD_FOLDER'] = ITEM_UPLOAD_FOLDER
 app.secret_key = 'super secret key'
 
 @app.before_request
@@ -56,22 +63,13 @@ def home():
     return render_template("home.html", title="home")
 
 @app.route('/logout', methods=['GET', 'POST'])
-def showSignUp():
-    if request.method == 'POST':
-        pass
-        # user = User()
-        # newStaffData = {
-        #     'name' : request.form['inputName'],
-        #     'email' : request.form['inputEmail'],
-        #     'password' : request.form['inputPassword']
-        # }
-        # result = user.do_register(newStaffData)
-        # if result:
-        #     return render_template('login.html')
-        # else:
-        #     return render_template('logout.html')
-    else:
-        return render_template('logout.html')
+def logout():
+
+    session.pop('staff_name', None)
+    session.pop('staff_id', None)
+    session.pop('auth', None)
+
+    return redirect('/main')
 
 
 @app.route('/showLogin', methods=['GET', 'POST'])
@@ -358,10 +356,11 @@ def outboxEdit():
                 'status': 0
                  }
 
-        result = Outbox(app).saveOutboxData(data, int(outboxId))
-        if result:
+        result = Outbox(app).saveOutboxData(int(outboxId), data)
+
+        if result is not None:
             flash('出库箱更新成功')
-            return redirect('/outboxIndex?id=' + customer_id)
+            return redirect('/outboxIndex?customer_id=' + customer_id)
         else:
             error='出库箱更新失败'
     else:
@@ -370,7 +369,7 @@ def outboxEdit():
 
     outboxData = Outbox(app).getOutboxData(int(outboxId))
 
-    return render_template('outboxAdd.html', title=unicode('出库箱追加', 'utf-8'), customerId = outboxData['customer_id'], outboxId = outboxId, outbox = outboxData, error= error)
+    return render_template('outboxAdd.html', title=unicode('出库箱追加', 'utf-8'), customerId = outboxData['customer_id'], outbox = outboxData, outboxId = outboxId, error= error)
 
 
 @app.route('/customer')
@@ -396,15 +395,17 @@ def customerAdd():
         company_name = request.form['company_name']
         company_address = request.form['company_address']
         company_telephone = request.form['company_telephone']
-        if request.form['id_confirmed_flag']:
-            id_confirmed_flag = 1
-        else:
+        try:
+            if request.form['id_confirmed_flag']:
+                id_confirmed_flag = 1
+
+        except:
             id_confirmed_flag = 0
 
         if request.form['id_card_no']:
             id_card_no = request.form['id_card_no']
         else:
-            id_card_no = null
+            id_card_no = None
 
         data = {
             'name': name,
@@ -419,6 +420,23 @@ def customerAdd():
             'id_confirmed_flag': id_confirmed_flag,
             'id_card_no': id_card_no,
         }
+
+        now_time = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
+
+        id_card_pic_front = request.files['id_card_pic_front']
+        id_card_pic_back = request.files['id_card_pic_back']
+
+        if id_card_pic_front and allowed_file(id_card_pic_front.filename):
+            filename = secure_filename(id_card_pic_front.filename)
+            save_file_name = now_time + '_id_card_pic_front_' + filename
+            data['id_card_pic_front'] = "/static/img/" + save_file_name
+            id_card_pic_front.save(os.path.join(app.config['UPLOAD_FOLDER'], save_file_name))
+
+        if id_card_pic_back and allowed_file(id_card_pic_back.filename):
+            filename = secure_filename(id_card_pic_back.filename)
+            save_file_name = now_time + '_id_card_pic_back_' + filename
+            data['id_card_pic_back'] = "/static/img/" + save_file_name
+            id_card_pic_back.save(os.path.join(app.config['UPLOAD_FOLDER'], save_file_name))
 
         result = Customer(app).insertCustomer(data)
 
@@ -449,10 +467,13 @@ def customerEdit():
         company_name = request.form['company_name']
         company_address = request.form['company_address']
         company_telephone = request.form['company_telephone']
-        if request.form['id_confirmed_flag']:
-            id_confirmed_flag = 1
-        else:
+        try:
+            if request.form['id_confirmed_flag']:
+                id_confirmed_flag = 1
+
+        except:
             id_confirmed_flag = 0
+
         id_card_no = request.form['id_card_no']
 
         data = {
@@ -468,6 +489,24 @@ def customerEdit():
             'id_confirmed_flag': id_confirmed_flag,
             'id_card_no': id_card_no,
         }
+
+        now_time = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
+
+        id_card_pic_front = request.files['id_card_pic_front']
+        id_card_pic_back = request.files['id_card_pic_back']
+
+        if id_card_pic_front and allowed_file(id_card_pic_front.filename):
+            filename = secure_filename(id_card_pic_front.filename)
+            save_file_name = now_time + '_id_card_pic_front_' + filename
+            data['id_card_pic_front'] = "/static/img/" + save_file_name
+            id_card_pic_front.save(os.path.join(app.config['UPLOAD_FOLDER'], save_file_name))
+
+        if id_card_pic_back and allowed_file(id_card_pic_back.filename):
+            filename = secure_filename(id_card_pic_back.filename)
+            save_file_name = now_time + '_id_card_pic_back_' + filename
+            data['id_card_pic_back'] = "/static/img/" + save_file_name
+            id_card_pic_back.save(os.path.join(app.config['UPLOAD_FOLDER'], save_file_name))
+
 
         result = Customer(app).updateCustomer(data,int(id))
 
@@ -518,8 +557,6 @@ def itemAdd():
 
     if request.method == 'POST':
 
-
-
         '''
         手順：
         ①DBに商品情報を書き込む
@@ -539,109 +576,150 @@ def itemAdd():
         '''
         #①DBに商品情報を書き込む
         #janコードを取得する。
-        jancode = request.form['jan_code']
+
+        try:
+            jancode = request.form['jan_code']
+        except:
+            jancode = ""
+
+        try:
+
+            itemNum = request.form['number']
+            if not int(itemNum) or int(itemNum) == 0:
+                error = unicode('数量不正确', 'utf-8')
+        except:
+            error = unicode('数量未选择', 'utf-8')
+
+        try:
+            inboxId = request.form['inbox']
+        except:
+            error = unicode('入库箱未选择', 'utf-8')
+
+
 
         #DBから商品情報を試して取得する。
-        item = Item(app).getItem({'jan_code': jancode})
+        if not error:
+            item = Item(app).getItem({'jan_code': jancode})
 
-        data = {
-                'jan_code': jancode,
-                'jp_name': request.form['jp_name'],
-                'en_name': request.form['en_name'],
-                'cn_name': request.form['cn_name'],
-                'unit_price': request.form['unit_price'],
-                'memo': request.form['memo'],
-                'country_of_origin': request.form['country_of_origin']
-            }
+            data = {
+                    'jp_name': request.form['jp_name'],
+                    'en_name': request.form['en_name'],
+                    'cn_name': request.form['cn_name'],
+                    'unit_price': request.form['unit_price'],
+                    'memo': request.form['memo'],
+                    'country_of_origin': request.form['country_of_origin']
+                }
 
-        if item:
+            #商品のimageを取得する
+            image_pic = request.files['item_image_pic']
 
+            if image_pic and allowed_file(image_pic.filename):
+
+                now_time = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
+                filename = secure_filename(image_pic.filename)
+
+                save_file_name = now_time + '_item_image_pic_' + filename
+                data['item_image_pic'] = "/static/item_img/" + save_file_name
+                #imageの保存
+                image_pic.save(os.path.join(app.config['ITEM_UPLOAD_FOLDER'], save_file_name))
+
+            if item:
+
+                itemId = item['id']
+
+                #あれば、更新
+                result = Item(app).saveItem(itemId, data)
+
+            else:
+                #なければ、追加
+                if jancode == "":
+                    jancode = Item(app).getLastJancode()
+                    data['jan_code'] = jancode
+                    data['no_code_flag'] = 1
+                else:
+                    data['jan_code'] = jancode;
+
+                result = Item(app).addItem(data)
+                if not result:
+                    error = unicode('商品添加失败', 'utf-8')
+
+
+            #②DBに商品と入庫箱の関係テーブルを書き込む
+
+            #DBから商品情報を試して取得する。
+            item = Item(app).getItem({'jan_code': jancode})
             itemId = item['id']
 
-            #あれば、更新
-            result = Item(app).saveItem(itemId, data)
 
+
+            checkTime = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+            relInItem = RelInItem(app).getRelInItem({'in_box_id': inboxId,'item_id':itemId})
+
+            if relInItem:
+                relInItemId = relInItem['id']
+
+                data = {
+                    'check_time': checkTime,
+                    'in_box_id': inboxId,
+                    'item_id': itemId,
+                    'item_num': int(itemNum) + int(relInItem['item_num'])
+                }
+
+                result = RelInItem(app).saveRelInItem(int(relInItemId),data)
+                if not result:
+                    error = unicode('商品添加失败', 'utf-8')
+            else:
+
+                data = {
+                    'check_time': checkTime,
+                    'in_box_id': inboxId,
+                    'item_id': itemId,
+                    'item_num': int(itemNum)
+                }
+
+                result = RelInItem(app).addRelInItem(data)
+                if not result:
+                    error = unicode('商品添加失败', 'utf-8')
+
+
+            #②DBに商品と出庫箱の関係テーブルを書き込む
+            outboxId = request.form['outbox']
+
+            relOutItem = RelOutItem(app).getRelOutItem({'out_box_id': outboxId,'item_id':itemId})
+
+            if relOutItem:
+                relOutItemId = relOutItem['id']
+
+                data = {
+                    'check_time': checkTime,
+                    'out_box_id': outboxId,
+                    'item_id': itemId,
+                    'item_num': int(itemNum) + int(relOutItem['item_num'])
+                }
+
+                result = RelOutItem(app).saveRelOutItem(int(relOutItemId),data)
+                if not result:
+                    error = unicode('商品添加失败', 'utf-8')
+            else:
+
+                data = {
+                    'check_time': checkTime,
+                    'out_box_id': outboxId,
+                    'item_id': itemId,
+                    'item_num': int(itemNum)
+                }
+
+                result = RelOutItem(app).addRelOutItem(data)
+                if not result:
+                    error = unicode('商品添加失败', 'utf-8')
+
+            if not error:
+                flash(unicode('货物添加成功', 'utf-8'))
+                return redirect("itemAddSuccess")
         else:
-            #なければ、追加
-            result = Item(app).addItem(data)
-            if not result:
-                error = unicode('商品添加失败', 'utf-8')
 
-
-        #②DBに商品と入庫箱の関係テーブルを書き込む
-
-        #DBから商品情報を試して取得する。
-        item = Item(app).getItem({'jan_code': jancode})
-        itemId = item['id']
-
-        inboxId = request.form['inbox']
-        itemNum = request.form['number']
-        checkTime = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-
-        relInItem = RelInItem(app).getRelInItem({'in_box_id': inboxId,'item_id':itemId})
-
-        if relInItem:
-            relInItemId = relInItem['id']
-
-            data = {
-                'check_time': checkTime,
-                'in_box_id': inboxId,
-                'item_id': itemId,
-                'item_num': int(itemNum) + int(relInItem['item_num'])
-            }
-
-            result = RelInItem(app).saveRelInItem(int(relInItemId),data)
-            if not result:
-                error = unicode('商品添加失败', 'utf-8')
-        else:
-
-            data = {
-                'check_time': checkTime,
-                'in_box_id': inboxId,
-                'item_id': itemId,
-                'item_num': int(itemNum)
-            }
-
-            result = RelInItem(app).addRelInItem(data)
-            if not result:
-                error = unicode('商品添加失败', 'utf-8')
-
-
-        #②DBに商品と出庫箱の関係テーブルを書き込む
-        outboxId = request.form['outbox']
-
-        relOutItem = RelOutItem(app).getRelOutItem({'out_box_id': outboxId,'item_id':itemId})
-
-        if relOutItem:
-            relOutItemId = relOutItem['id']
-
-            data = {
-                'check_time': checkTime,
-                'out_box_id': outboxId,
-                'item_id': itemId,
-                'item_num': int(itemNum) + int(relOutItem['item_num'])
-            }
-
-            result = RelOutItem(app).saveRelOutItem(int(relOutItemId),data)
-            if not result:
-                error = unicode('商品添加失败', 'utf-8')
-        else:
-
-            data = {
-                'check_time': checkTime,
-                'out_box_id': outboxId,
-                'item_id': itemId,
-                'item_num': int(itemNum)
-            }
-
-            result = RelOutItem(app).addRelOutItem(data)
-            if not result:
-                error = unicode('商品添加失败', 'utf-8')
-
-        if not error:
-            flash(unicode('顾客删除成功', 'utf-8'))
-            return redirect("itemAddSuccess")
-
+            return redirect("/itemAdd?error="+error+"&jancode=")
 
 
 
@@ -661,18 +739,19 @@ def itemAdd():
         ⑤出庫箱を選び
         ⑥情報をDBに反映する。
         '''
+        error = request.args.get('error')
 
         #janコードを取得する。
-        jancode = request.args.get('jancode')
+        jancode = str(request.args.get('jancode'))
 
         #DBから商品情報を試して取得する。
         item = Item(app).getItem({'jan_code': jancode})
 
-        if not item:
+        if (item == 0):
             #取得できなければ、ウェブサイトから、商品情報を取得する。
             try:
                 html = urllib.urlopen('http://www.janken.jp/goods/jk_catalog_syosai.php?jan=' + jancode)
-            except Error as e:
+            except error as e:
                 print e
 
             soup = BeautifulSoup(html.read(),"html.parser")
@@ -697,8 +776,12 @@ def itemAdd():
 
     madeInInfos = MadeInInfo(app).getMadeInInfos(None)
     inboxes = Inbox(app).getInboxDatas({'status': 1, 'staff_id':session.get('staff_id')})
-    outboxes = Outbox(app).getOutboxDatas({'status': 0, 'staff_id':session.get('staff_id')})
+    if not inboxes:
+        error = unicode('没有入库箱', 'utf-8')
 
+    outboxes = Outbox(app).getOutboxDatas({'status': 0, 'staff_id':session.get('staff_id')})
+    if not outboxes:
+        error = unicode('没有出库箱', 'utf-8')
 
     return render_template('itemAdd.html', title = unicode("商品添加", 'utf-8'),item = item, madeInInfos = madeInInfos,
                            inboxes = inboxes, outboxes = outboxes ,error = error)
@@ -742,6 +825,7 @@ def outboxInfo():
     error = None
 
     outboxId = request.args.get('id')
+    source = request.args.get('source')
 
     outbox = Outbox(app).getOutboxData(int(outboxId))
 
@@ -778,7 +862,7 @@ def outboxInfo():
 
 
     return render_template('outboxInfo.html', title = unicode("出库箱详细", 'utf-8'), error = error, outbox = outbox,
-                           customer = customer, items = items)
+                           customer = customer, items = items,source = source)
 
 
 @app.route('/removeItem', methods=['GET', 'POST'])
@@ -1036,31 +1120,36 @@ def adminOutbox():
 
         where = {}
         if date_from:
-            where['date_from'] = date_from + ' 00:00:00'
+            where['update_from'] = date_from + ' 00:00:00'
         if date_to:
-            where['date_to'] = date_to + ' 23:59:59'
+            where['update_to'] = date_to + ' 23:59:59'
         if name:
             where['name'] = name
         if status:
             where['status'] = status
 
         if len(where) == 0:
-            outboxData = Outbox(app).getOutboxDataBySearch(None)
+                outboxData = Outbox(app).getOutboxDataBySearch(None)
         else:
             outboxData = Outbox(app).getOutboxDataBySearch(where)
 
     else:
+        where = {}
 
-        date_from = datetime.datetime.now().strftime("%Y-%m-%d 00:00:00")
-        date_to = datetime.datetime.now().strftime("%Y-%m-%d 23:59:59")
+        where['update_from'] = date_from = datetime.datetime.now().strftime("%Y-%m-%d 00:00:00")
+        where['update_to'] = date_to = datetime.datetime.now().strftime("%Y-%m-%d 23:59:59")
 
-        outboxData = Outbox(app).getOutboxDataBySearch(None)
+        outboxData = Outbox(app).getOutboxDataBySearch(where)
 
     newOutboxData = {}
 
     for key,record in outboxData.items():
         staffId = record['staff_id']
-        staffName = Staff(app).getStaff(int(staffId))['name']
+        staff = Staff(app).getStaff(int(staffId))
+        if staff == 0:
+            staffName = '该用户已被删除'
+        else:
+            staffName = Staff(app).getStaff(int(staffId))['name']
         record['staff_name'] = staffName
         newOutboxData[key] = record
 
@@ -1313,7 +1402,7 @@ def adminStaff():
     if customer == 0:
         error = "can not found the customer datas!"
 
-    return render_template('adminStaffList.html', title = unicode("客户管理", 'utf-8'), error = error, viewStaff = customer)
+    return render_template('adminStaffList.html', title = unicode("职员管理", 'utf-8'), error = error, viewStaff = customer)
 
 @app.route('/adminStaffAdd', methods=['GET', 'POST'])
 def adminStaffAdd():
@@ -1420,6 +1509,13 @@ def adminHome():
         return render_template("adminHome.html", title="adminHome")
     else:
         return render_template("home.html", title="home")
+
+
+
+
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=8000)
